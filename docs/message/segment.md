@@ -542,7 +542,7 @@
   "type": "file",
   "data": {
     "file": ".env",
-    "file_id": "2eb4eb3ff95b09df4de35ea1c783c368_1cfbf698-2979-11f0-a74e-8b13705da6c5",
+    "file_id": "1eb3eb3ff95b09df4de35ea1c783c368_1cfbf698-2979-11f0-a74e-8b13705da6c5",
     "file_size": "891"
   }
 }
@@ -558,7 +558,7 @@
   "data": {
     "file_name": "1.txt",
     "file_hash": "",
-    "file_id": "/376df9e4-a61d-48ce-ac39-edb883d06345",
+    "file_id": "/376df2e1-a61d-48ce-ac39-edb883d06345",
     "url": "https://gzc-download.ftn.qq.com/ftn_handler/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/?fname="
   }
 }
