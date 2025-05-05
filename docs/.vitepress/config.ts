@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/onebot-11/',
   title: "onebot11",
   description: "太懒了 还没有",
   vite: {
