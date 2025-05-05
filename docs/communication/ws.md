@@ -22,7 +22,7 @@ OneBot 在启动时开启一个 WebSocket 服务器，监听配置文件指定�
 }
 ```
 
-这里的 `action` 参数用于指定要调用的 API，具体参考 [API](../api/)；`params` 用于传入参数，如果要调用的 API 不需要参数，则可以不加；`echo` 字段是可选的，类似于 [JSON RPC](https://www.jsonrpc.org/specification) 的 `id` 字段，用于唯一标识一次请求，可以是任何类型的数据，OneBot 将会在调用结果中原样返回。
+这里的 `action` 参数用于指定要调用的 API，具体参考 [API](../api/README.md)；`params` 用于传入参数，如果要调用的 API 不需要参数，则可以不加；`echo` 字段是可选的，类似于 [JSON RPC](https://www.jsonrpc.org/specification) 的 `id` 字段，用于唯一标识一次请求，可以是任何类型的数据，OneBot 将会在调用结果中原样返回。
 
 客户端向 OneBot 发送 JSON 之后，OneBot 会往回发送一个调用结果，结构和 [HTTP 的响应](http.md#响应) 相似，（除了包含请求中传入的 `echo` 字段外）唯一的区别在于，通过 HTTP 调用 API 时，HTTP 状态码反应的错误情况被移动到响应 JSON 的 `retcode` 字段，例如，HTTP 返回 404 的情况，对应到 WebSocket 的回复，是：
 
@@ -48,7 +48,7 @@ OneBot 在启动时开启一个 WebSocket 服务器，监听配置文件指定�
 
 ## `/event` 接口
 
-连接此接口后，OneBot 会在收到事件后推送至客户端，推送的格式和 [HTTP POST 的上报](http-post.md#上报) 完全一致，事件的具体内容见 [事件](../event/)。
+连接此接口后，OneBot 会在收到事件后推送至客户端，推送的格式和 [HTTP POST 的上报](http-post.md#上报) 完全一致，事件的具体内容见 [事件](../event/README.md)。
 
 与 HTTP POST 不同的是，WebSocket 推送不会对数据进行签名（即 HTTP POST 中的 `X-Signature` 请求头在这里没有等价的东西），并且也不会处理响应数据。如果对事件进行处理的时候需要调用接口，请使用 [`/api` 接口](#api-接口) 或使用 HTTP 调用 API。
 
