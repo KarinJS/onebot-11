@@ -8,6 +8,14 @@ export default defineConfig({
   vite: {
     server: {
       port: 5174
+    },
+    css: {
+      // 如果需要处理CSS文件
+      preprocessorOptions: {
+        css: {
+          charset: false
+        }
+      }
     }
   },
   themeConfig: {
