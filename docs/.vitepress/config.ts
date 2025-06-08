@@ -63,7 +63,12 @@ export default defineConfig({
           { text: 'API 列表', link: '/api/README.md' },
           { text: '公开 API', link: '/api/public.md' },
           { text: '隐藏 API', link: '/api/hidden.md' },
-          { text: '消息相关Api', link: '/api/message.md' },
+          { text: '消息相关API', link: '/api/message.md' },
+          { text: '好友相关API', link: '/api/friend.md' },
+          { text: '群聊相关API', link: '/api/group.md' },
+          { text: '文件相关API', link: '/api/file.md' },
+          { text: 'Bot自身相关API', link: '/api/bot.md' },
+          { text: '其他API', link: '/api/other.md' },
         ]
       }
     ],
