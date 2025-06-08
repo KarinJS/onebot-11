@@ -59,9 +59,11 @@ export default defineConfig({
       {
         text: 'API',
         items: [
-          { text: 'API 概述', link: '/api/README.md' },
+          { text: 'API 概述', link: '/api/Introduction.md' },
+          { text: 'API 列表', link: '/api/README.md' },
           { text: '公开 API', link: '/api/public.md' },
-          { text: '隐藏 API', link: '/api/hidden.md' }
+          { text: '隐藏 API', link: '/api/hidden.md' },
+          { text: '消息相关Api', link: '/api/message.md' },
         ]
       }
     ],

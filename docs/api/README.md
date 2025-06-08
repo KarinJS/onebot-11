@@ -1,48 +1,103 @@
-# API
+# Api 列表一览
 
-- [API](#api)
-  - [参数](#参数)
-  - [响应](#响应)
-  - [异步调用](#异步调用)
-  - [限速调用](#限速调用)
-  - [相关配置](#相关配置)
+> [!note]
+> api没有超链接的代表还未完成收集  
+> 未完成收集的状态不代表真实性  
+> ✅ 代表对应协议实现了此Api  
+> ❌ 代表对应协议未实现此Api
 
-API 是 OneBot 向用户提供的操作接口，用户可通过 HTTP 请求或 WebSocket 消息等方式调用 API。
+| api                              | 名称                       | gocq | NapCat | Lagrange | 备注     |
+| -------------------------------- | -------------------------- | ---- | ------ | -------- | -------- |
+| [send_msg]                       | 发送消息                   | ✅    | ✅      | ✅        |          |
+| [send_private_msg]               | 发送私聊消息               | ✅    | ✅      | ✅        |          |
+| [send_group_msg]                 | 发送群消息                 | ✅    | ✅      | ✅        |          |
+| [delete_msg]                     | 撤回消息                   | ✅    | ✅      | ✅        |          |
+| [get_msg]                        | 获取消息                   | ✅    | ✅      | ✅        |          |
+| [get_forward_msg]                | 获取合并转发消息           | ✅    | ✅      | ✅        |          |
+| [send_forward_msg]               | 发送合并转发消息           | ✅    | ✅      | ✅        |          |
+| [send_group_forward_msg]         | 发送合并转发(群聊)         | ✅    | ✅      | ✅        | gocq拓展 |
+| [send_private_forward_msg]       | 发送合并转发(好友)         | ✅    | ✅      | ✅        | gocq拓展 |
+| [get_group_msg_history]          | 获取群消息历史记录         | ✅    | ✅      | ✅        | gocq拓展 |
+| [get_friend_msg_history]         | 获取好友消息历史记录       | ❌    | ✅      | ✅        | 社区拓展 |
+|                                  |                            |      |        |          |          |
+| `set_group_kick`                 | 群组踢人                   | ✅    | ✅      | ✅        |          |
+| `set_group_ban`                  | 群组单人禁言               | ✅    | ✅      | ✅        |          |
+| `set_group_anonymous_ban`        | 群组匿名用户禁言           | ✅    | ✅      | ✅        |          |
+| `set_group_whole_ban`            | 群组全员禁言               | ✅    | ✅      | ✅        |          |
+| `set_group_admin`                | 群组设置管理员             | ✅    | ✅      | ✅        |          |
+| `set_group_anonymous`            | 群组匿名                   | ✅    | ✅      | ✅        |          |
+| `set_group_card`                 | 设置群名片（群备注）       | ✅    | ✅      | ✅        |          |
+| `set_group_name`                 | 设置群名                   | ✅    | ✅      | ✅        |          |
+| `set_group_leave`                | 退出群组                   | ✅    | ✅      | ✅        |          |
+| `set_group_special_title`        | 设置群组专属头衔           | ✅    | ✅      | ✅        |          |
+| `set_group_add_request`          | 处理加群请求／邀请         | ✅    | ✅      | ✅        |          |
+| `set_group_portrait`             | 设置群头像                 | ✅    | ✅      | ✅        | gocq拓展 |
+| `set_essence_msg`                | 设置精华消息               | ✅    | ✅      | ✅        | gocq拓展 |
+| `delete_essence_msg`             | 移出精华消息               | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_essence_msg_list`           | 获取精华消息列表           | ✅    | ✅      | ✅        | gocq拓展 |
+| `send_group_sign`                | 群打卡                     | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_group_notice`               | 获取群公告                 | ✅    | ✅      | ✅        | gocq拓展 |
+| `send_group_notice`              | 发送群公告                 | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_group_system_msg`           | 获取群系统消息             | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_group_at_all_remain`        | 获取群 @全体成员 剩余次数  | ✅    | ✅      | ✅        | gocq拓展 |
+|                                  |                            |      |        |          |          |
+| `send_like`                      | 发送好友赞                 | ✅    | ✅      | ✅        |          |
+| `set_friend_add_request`         | 处理加好友请求             | ✅    | ✅      | ✅        |          |
+| `get_unidirectional_friend_list` | 获取单向好友列表           | ✅    | ✅      | ✅        | gocq拓展 |
+| `delete_friend`                  | 删除好友                   | ✅    | ✅      | ✅        | gocq拓展 |
+| `delete_unidirectional_friend`   | 删除单向好友               | ✅    | ✅      | ✅        | gocq拓展 |
+|                                  |                            |      |        |          |          |
+| `get_login_info`                 | 获取登录号信息             | ✅    | ✅      | ✅        |          |
+| `get_stranger_info`              | 获取陌生人信息             | ✅    | ✅      | ✅        |          |
+| `get_friend_list`                | 获取好友列表               | ✅    | ✅      | ✅        |          |
+| `get_group_info`                 | 获取群信息                 | ✅    | ✅      | ✅        |          |
+| `get_group_list`                 | 获取群列表                 | ✅    | ✅      | ✅        |          |
+| `get_group_member_info`          | 获取群成员信息             | ✅    | ✅      | ✅        |          |
+| `get_group_member_list`          | 获取群成员列表             | ✅    | ✅      | ✅        |          |
+| `get_group_honor_info`           | 获取群荣誉信息             | ✅    | ✅      | ✅        |          |
+| `get_cookies`                    | 获取 Cookies               | ✅    | ✅      | ✅        |          |
+| `get_csrf_token`                 | 获取 CSRF Token            | ✅    | ✅      | ✅        |          |
+| `get_credentials`                | 获取 QQ 相关接口凭证       | ✅    | ✅      | ✅        |          |
+| `get_record`                     | 获取语音                   | ✅    | ✅      | ✅        |          |
+| `get_image`                      | 获取图片                   | ✅    | ✅      | ✅        |          |
+| `can_send_image`                 | 检查是否可以发送图片       | ✅    | ✅      | ✅        |          |
+| `can_send_record`                | 检查是否可以发送语音       | ✅    | ✅      | ✅        |          |
+| `get_status`                     | 获取运行状态               | ✅    | ✅      | ✅        |          |
+| `get_version_info`               | 获取版本信息               | ✅    | ✅      | ✅        |          |
+| `get_online_clients`             | 获取当前账号在线客户端列表 | ✅    | ✅      | ✅        | gocq拓展 |
+| `qidian_get_account_info`        | 获取企点账号信息           | ✅    | ✅      | ✅        | gocq拓展 |
+|                                  |                            |      |        |          |          |
+| `get_group_file_url`             | 获取群文件资源链接         | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_private_file_url`           | 获取私聊文件资源链接       | ✅    | ✅      | ✅        | gocq拓展 |
+| `upload_group_file`              | 上传群文件                 | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_group_file_system_info`     | 获取群文件系统信息         | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_group_root_files`           | 获取群根目录文件列表       | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_group_files_by_folder`      | 获取群子目录文件列表       | ✅    | ✅      | ✅        | gocq拓展 |
+| `delete_group_file`              | 删除群文件                 | ✅    | ✅      | ✅        | gocq拓展 |
+| `create_group_file_folder`       | 创建群文件文件夹           | ✅    | ✅      | ✅        | gocq拓展 |
+| `delete_group_folder`            | 删除群文件文件夹           | ✅    | ✅      | ✅        | gocq拓展 |
+| `upload_private_file`            | 上传私聊文件               | ✅    | ✅      | ✅        | gocq拓展 |
+|                                  |                            |      |        |          |          |
+| `set_restart`                    | 重启 OneBot 实现           | ✅    | ✅      | ✅        |          |
+| `clean_cache`                    | 清理缓存                   | ✅    | ✅      | ✅        |          |
+| `_get_model_show`                | 获取在线机型               | ✅    | ✅      | ✅        | gocq拓展 |
+| `_set_model_show`                | 设置在线机型               | ✅    | ✅      | ✅        | gocq拓展 |
+| `ocr_image`                      | 图片 OCR                   | ✅    | ✅      | ✅        | gocq拓展 |
+| `set_qq_profile`                 | 设置登录号资料             | ✅    | ✅      | ✅        | gocq拓展 |
+| `download_file`                  | 下载文件到缓存目录         | ✅    | ✅      | ✅        | gocq拓展 |
+| `check_url_safely`               | 检查链接安全性             | ✅    | ✅      | ✅        | gocq拓展 |
+|                                  |                            |      |        |          |          |
+| `.handle_quick_operation`        | 对事件执行快速操作         | ✅    | ✅      | ✅        |          |
+| `.get_word_slices`               | 获取中文分词               | ✅    | ✅      | ✅        | gocq拓展 |
 
-## 参数
-
-API 调用需要指定 action（要进行的动作）和动作所需的参数。
-
-在后面的 API 描述中，action 在标题中给出，如 `send_private_msg`；参数在「参数」小标题下给出，其中「数据类型」使用 JSON 中的名字，例如 `string`、`number` 等。
-
-特别地，数据类型 `message` 表示该参数是一个消息类型的参数，在调用 API 时，`message` 类型的参数允许接受字符串、消息段数组、单个消息段对象三种类型的数据，关于消息格式的更多细节请查看 [消息](../message/README.md)。
-
-## 响应
-
-OneBot 会对每个 API 调用返回一个 JSON 响应（除非是 HTTP 状态码不为 200 的情况），响应中的 `data` 字段包含 API 调用返回的数据内容。在后面的 API 描述中，将只给出 `data` 字段的内容，放在「响应数据」小标题下，而不再赘述 `status`、`retcode` 字段。
-
-## 异步调用
-
-所有 API 都可以通过给 action 附加后缀 `_async` 来进行异步调用，例如 `send_private_msg_async`、`send_msg_async`、`clean_data_dir_async`。
-
-异步调用的响应中，`status` 字段为 `async`。
-
-需要注意的是，虽然说以 `get_` 开头的那些接口也可以进行异步调用，但实际上客户端没有办法得知最终的调用结果，所以对这部分接口进行异步调用是没有意义的；另外，有一些接口本身就是异步执行的（返回的 `status` 为 `async`），此时使用 `_async` 后缀来调用不会产生本质上的区别。
-
-## 限速调用
-
-所有 API 都可以通过给 action 附加后缀 `_rate_limited` 来进行限速调用，例如 `send_private_msg_rate_limited`、`send_msg_rate_limited`，不过主要还是用在发送消息接口上，以避免消息频率过快导致腾讯封号。所有限速调用将会以指定速度**排队执行**，这个速度可在配置中指定。
-
-限速调用的响应中，`status` 字段为 `async`。
-
-## 相关配置
-
-| 配置项 | 默认值 | 说明 |
-| -------- | ------ | --- |
-| `api.rate_limit_interval` | `500` | 限速 API 调用的排队间隔时间，单位毫秒 |
-
-<hr>
-
-| 上一节 | 下一节 |
-| --- | --- |
-| [消息段类型](../message/segment.md) | [公开 API](public.md) |
+[send_msg]: ./message.md#发送消息
+[send_private_msg]: ./message.md#发送私聊消息
+[send_group_msg]: ./message.md#发送群消息
+[delete_msg]: ./message.md#撤回消息
+[get_msg]: ./message.md#获取消息
+[get_forward_msg]: ./message.md#获取合并转发消息
+[send_forward_msg]: ./message.md#发送合并转发
+[send_group_forward_msg]: ./message.md#发送合并转发-群聊
+[send_private_forward_msg]: ./message.md#发送合并转发-好友
+[get_group_msg_history]: ./message.md#获取消息历史记录-群聊
+[get_friend_msg_history]: ./message.md#获取消息历史记录-好友

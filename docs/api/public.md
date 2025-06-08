@@ -1,6 +1,83 @@
 # 公开 API
 
 > [!note] 点击右边导航栏可以快捷跳转至对应API
+> 对于实现了`OneBot11`标准的协议框架  
+> 目前仅收集`NapCat`、`Lagrange.OneBot`、`gocq`的实现  
+> 对于`gocq`，目前仅靠`gocq`文档收集，可能存在遗漏  
+> 如有更多框架实现补充，欢迎提交PR
+
+- `send_private_msg`: 标准API
+- `send_group_msg`: 标准API
+- `send_msg`: 标准API
+- `delete_msg`: 标准API
+- `get_msg`: 标准API
+- `get_forward_msg`: 标准API
+- `send_like`: 标准API
+- `set_group_kick`: 标准API
+- `set_group_ban`: 标准API
+- `set_group_anonymous_ban`: 标准API
+- `set_group_whole_ban`: 标准API
+- `set_group_admin`: 标准API
+- `set_group_anonymous`: 标准API
+- `set_group_card`: 标准API
+- `set_group_name`: 标准API
+- `set_group_leave`: 标准API
+- `set_group_special_title`: 标准API
+- `set_friend_add_request`: 标准API
+- `set_group_add_request`: 标准API
+- `get_login_info`: 标准API
+- `get_stranger_info`: 标准API
+- `get_friend_list`: 标准API
+- `get_group_info`: 标准API
+- `get_group_list`: 标准API
+- `get_group_member_info`: 标准API
+- `get_group_member_list`: 标准API
+- `get_group_honor_info`: 标准API
+- `get_cookies`: 标准API
+- `get_csrf_token`: 标准API
+- `get_credentials`: 标准API
+- `get_record`: 标准API
+- `get_image`: 标准API
+- `can_send_image`: 标准API
+- `can_send_record`: 标准API
+- `get_status`: 标准API
+- `get_version_info`: 标准API
+- `set_restart`: 标准API
+- `clean_cache`: 标准API
+
+- `get_group_file_url`: gocq拓展API
+- `get_private_file_url`: gocq拓展API`(文档没看到)`
+- `send_group_forward_msg`: gocq拓展API
+- `send_private_forward_msg`: gocq拓展API
+- `get_group_msg_history`: gocq拓展API
+- `set_essence_msg`: gocq拓展API
+- `delete_essence_msg`: gocq拓展API
+- `send_group_sign`: gocq拓展API
+- `get_group_notice`: gocq拓展API
+- `send_group_notice`: gocq拓展API
+- `get_group_system_msg`: gocq拓展API
+- `upload_group_file`: gocq拓展API
+- `get_group_file_system_info`: gocq拓展API
+- `get_group_root_files`: gocq拓展API
+- `get_group_files_by_folder`: gocq拓展API
+- `delete_group_file`: gocq拓展API
+- `create_group_file_folder`: gocq拓展API
+- `delete_group_folder`: gocq拓展API
+- `upload_private_file`: gocq拓展API
+- `get_unidirectional_friend_list`: gocq拓展API
+- `delete_friend`: gocq拓展API
+- `delete_unidirectional_friend`: gocq拓展API
+- `set_group_portrait`: gocq拓展API
+- `get_essence_msg_list`: gocq拓展API
+- `get_group_at_all_remain`: gocq拓展API
+- `qidian_get_account_info`: gocq拓展API
+- `_get_model_show`: gocq拓展API
+- `_set_model_show`: gocq拓展API
+- `get_online_clients`: gocq拓展API
+- `ocr_image`: gocq拓展API
+- `set_qq_profile`: gocq拓展API
+- `download_file`: gocq拓展API
+- `check_url_safely`: gocq拓展API
 
 ## `send_private_msg` 发送私聊消息
 
@@ -659,3 +736,607 @@
 | 上一节                | 下一节                |
 | --------------------- | --------------------- |
 | [API 概述](README.md) | [隐藏 API](hidden.md) |
+
+## `send_group_forward_msg` 发送合并转发(群聊)
+
+### 参数
+
+| 字段名     | 数据类型        | 说明                                                         |
+| ---------- | --------------- | ------------------------------------------------------------ |
+| `group_id` | number (int64)  | 群号                                                         |
+| `messages` | forward node[]  | 自定义转发消息, 具体看 [CQcode](https://docs.go-cqhttp.org/cqcode/#%E5%90%88%E5%B9%B6%E8%BD%AC%E5%8F%91%E6%B6%88%E6%81%AF%E8%8A%82%E7%82%B9) |
+
+### 响应数据
+
+| 字段名       | 数据类型     | 说明        |
+| ------------ | ------------ | ----------- |
+| `message_id` | number (int64) | 消息 ID     |
+| `forward_id` | string       | 转发消息 ID |
+
+## `send_private_forward_msg` 发送合并转发(好友)
+
+### 参数
+
+| 字段名     | 数据类型     | 说明                                                         |
+| ---------- | ------------ | ------------------------------------------------------------ |
+| `user_id`  | number (int64) | 好友QQ号                                                     |
+| `messages` | forward node[] | 自定义转发消息, 具体看 [CQcode](https://docs.go-cqhttp.org/cqcode/#%E5%90%88%E5%B9%B6%E8%BD%AC%E5%8F%91%E6%B6%88%E6%81%AF%E8%8A%82%E7%82%B9) |
+
+### 响应数据
+
+| 字段名       | 数据类型     | 说明        |
+| ------------ | ------------ | ----------- |
+| `message_id` | number (int64) | 消息 ID     |
+| `forward_id` | string       | 转发消息 ID |
+
+## `get_group_msg_history` 获取群消息历史记录
+
+### 参数
+
+| 字段名       | 数据类型     | 说明                                |
+| ------------ | ------------ | ----------------------------------- |
+| `message_seq` | number (int64) | 起始消息序号, 可通过 `get_msg` 获得 |
+| `group_id`   | number (int64) | 群号                               |
+
+### 响应数据
+
+| 字段名     | 数据类型  | 说明                       |
+| ---------- | --------- | -------------------------- |
+| `messages` | Message[] | 从起始序号开始的前19条消息 |
+
+::: tip 提示
+不提供起始序号将默认获取最新的消息
+:::
+
+## `set_essence_msg` 设置精华消息
+
+### 参数
+
+| 字段名      | 数据类型     | 说明   |
+| ----------- | ------------ | ------ |
+| `message_id` | number (int32) | 消息ID |
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## `delete_essence_msg` 移出精华消息
+
+### 参数
+
+| 字段名      | 数据类型     | 说明   |
+| ----------- | ------------ | ------ |
+| `message_id` | number (int32) | 消息ID |
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## `send_group_sign` 群打卡
+
+### 参数
+
+| 字段名     | 数据类型     | 说明 |
+| ---------- | ------------ | ---- |
+| `group_id` | number (int64) | 群号 |
+
+::: tip 提示
+该 API 无响应数据
+:::
+
+## `get_group_notice` 获取群公告
+
+### 参数
+
+| 字段名     | 数据类型     | 默认值 | 说明 |
+| ---------- | ------------ | ------ | ---- |
+| `group_id` | number (int64) |        | 群号 |
+
+### 响应数据
+
+响应内容为 json 数组，每个元素内容如下：
+
+| 字段名        | 数据类型     | 说明         |
+| ------------- | ------------ | ------------ |
+| `sender_id`   | number (int64) | 公告发表者   |
+| `publish_time` | number (int64) | 公告发表时间 |
+| `message`     | object       | 公告内容     |
+
+其中 `message` 字段的内容如下：
+
+| 字段名  | 数据类型 | 说明     |
+| ------- | -------- | -------- |
+| `text`  | string   | 公告内容 |
+| `images` | array    | 公告图片 |
+
+其中 `images` 字段每个元素内容如下：
+
+| 字段名  | 数据类型 | 说明     |
+| ------- | -------- | -------- |
+| `height` | string   | 图片高度 |
+| `width` | string   | 图片宽度 |
+| `id`    | string   | 图片ID   |
+
+## `send_group_notice` 发送群公告
+
+### 参数
+
+| 字段名     | 数据类型     | 默认值 | 说明             |
+| ---------- | ------------ | ------ | ---------------- |
+| `group_id` | number (int64) |        | 群号             |
+| `content`  | string       |        | 公告内容         |
+| `image`    | string       |        | 图片路径（可选） |
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## `get_group_system_msg` 获取群系统消息
+
+### 响应数据
+
+| 字段名            | 数据类型         | 说明         |
+| ----------------- | ---------------- | ------------ |
+| `invited_requests` | InvitedRequest[] | 邀请消息列表 |
+| `join_requests`   | JoinRequest[]    | 进群消息列表 |
+
+::: warning 注意
+如果列表不存在任何消息, 将返回 `null`
+:::
+
+**InvitedRequest**
+
+| 字段名        | 数据类型     | 说明              |
+| ------------- | ------------ | ----------------- |
+| `request_id`  | number (int64) | 请求ID            |
+| `invitor_uin` | number (int64) | 邀请者            |
+| `invitor_nick` | string       | 邀请者昵称        |
+| `group_id`    | number (int64) | 群号              |
+| `group_name`  | string       | 群名              |
+| `checked`     | boolean      | 是否已被处理      |
+| `actor`       | number (int64) | 处理者, 未处理为0 |
+
+**JoinRequest**
+
+| 字段名          | 数据类型     | 说明              |
+| --------------- | ------------ | ----------------- |
+| `request_id`    | number (int64) | 请求ID            |
+| `requester_uin` | number (int64) | 请求者ID          |
+| `requester_nick` | string       | 请求者昵称        |
+| `message`       | string       | 验证消息          |
+| `group_id`      | number (int64) | 群号              |
+| `group_name`    | string       | 群名              |
+| `checked`       | boolean      | 是否已被处理      |
+| `actor`         | number (int64) | 处理者, 未处理为0 |
+
+## `upload_group_file` 上传群文件
+
+### 参数
+
+| 字段名    | 数据类型     | 说明         |
+| --------- | ------------ | ------------ |
+| `group_id` | number (int64) | 群号         |
+| `file`     | string       | 本地文件路径 |
+| `name`     | string       | 储存名称     |
+| `folder`   | string       | 父目录ID     |
+
+::: warning 注意
+在不提供 `folder` 参数的情况下默认上传到根目录
+
+只能上传本地文件, 需要上传 `http` 文件的话请先调用 `download_file` API 下载
+:::
+
+## `get_group_file_system_info` 获取群文件系统信息
+
+### 参数
+
+| 字段名    | 数据类型     | 说明 |
+| --------- | ------------ | ---- |
+| `group_id` | number (int64) | 群号 |
+
+### 响应数据
+
+| 字段名        | 数据类型     | 说明       |
+| ------------- | ------------ | ---------- |
+| `file_count`  | number (int32) | 文件总数   |
+| `limit_count` | number (int32) | 文件上限   |
+| `used_space`  | number (int64) | 已使用空间 |
+| `total_space` | number (int64) | 空间上限   |
+
+## `get_group_root_files` 获取群根目录文件列表
+
+### 参数
+
+| 字段名    | 数据类型     | 说明 |
+| --------- | ------------ | ---- |
+| `group_id` | number (int64) | 群号 |
+
+### 响应数据
+
+| 字段名    | 数据类型 | 说明       |
+| --------- | -------- | ---------- |
+| `files`   | File[]   | 文件列表   |
+| `folders` | Folder[] | 文件夹列表 |
+
+## `get_group_files_by_folder` 获取群子目录文件列表
+
+### 参数
+
+| 字段名     | 数据类型     | 说明                        |
+| ---------- | ------------ | --------------------------- |
+| `group_id` | number (int64) | 群号                        |
+| `folder_id` | string       | 文件夹ID 参考 `Folder` 对象 |
+
+### 响应数据
+
+| 字段名    | 数据类型 | 说明       |
+| --------- | -------- | ---------- |
+| `files`   | File[]   | 文件列表   |
+| `folders` | Folder[] | 文件夹列表 |
+
+## 文件对象类型
+
+**File**
+
+| 字段名           | 数据类型     | 说明                   |
+| ---------------- | ------------ | ---------------------- |
+| `group_id`       | number (int32) | 群号                   |
+| `file_id`        | string       | 文件ID                 |
+| `file_name`      | string       | 文件名                 |
+| `busid`          | number (int32) | 文件类型               |
+| `file_size`      | number (int64) | 文件大小               |
+| `upload_time`    | number (int64) | 上传时间               |
+| `dead_time`      | number (int64) | 过期时间,永久文件恒为0 |
+| `modify_time`    | number (int64) | 最后修改时间           |
+| `download_times` | number (int32) | 下载次数               |
+| `uploader`       | number (int64) | 上传者ID               |
+| `uploader_name`  | string       | 上传者名字             |
+
+**Folder**
+
+| 字段名            | 数据类型     | 说明       |
+| ----------------- | ------------ | ---------- |
+| `group_id`        | number (int32) | 群号       |
+| `folder_id`       | string       | 文件夹ID   |
+| `folder_name`     | string       | 文件名     |
+| `create_time`     | number (int64) | 创建时间   |
+| `creator`         | number (int64) | 创建者     |
+| `creator_name`    | string       | 创建者名字 |
+| `total_file_count` | number (int32) | 子文件数量 |
+
+## `delete_group_file` 删除群文件
+
+### 参数
+
+| 字段名    | 数据类型     | 说明                      |
+| --------- | ------------ | ------------------------- |
+| `group_id` | number (int64) | 群号                      |
+| `file_id` | string       | 文件ID 参考 `File` 对象   |
+| `busid`   | number (int32) | 文件类型 参考 `File` 对象 |
+
+::: tip 提示
+该 API 无响应数据
+:::
+
+## `create_group_file_folder` 创建群文件文件夹
+
+::: warning 注意
+仅能在根目录创建文件夹
+:::
+
+### 参数
+
+| 字段名     | 数据类型     | 说明       |
+| ---------- | ------------ | ---------- |
+| `group_id` | number (int64) | 群号       |
+| `name`     | string       | 文件夹名称 |
+| `parent_id` | string       | 仅能为 `/` |
+
+::: tip 提示
+该 API 无响应数据
+:::
+
+## `delete_group_folder` 删除群文件文件夹
+
+### 参数
+
+| 字段名     | 数据类型     | 说明                        |
+| ---------- | ------------ | --------------------------- |
+| `group_id` | number (int64) | 群号                        |
+| `folder_id` | string       | 文件夹ID 参考 `Folder` 对象 |
+
+::: tip 提示
+该 API 无响应数据
+:::
+
+## `upload_private_file` 上传私聊文件
+
+### 参数
+
+| 字段名    | 数据类型     | 说明         |
+| --------- | ------------ | ------------ |
+| `user_id` | number (int64) | 对方 QQ 号   |
+| `file`    | string       | 本地文件路径 |
+| `name`    | string       | 文件名称     |
+
+::: warning 注意
+只能上传本地文件, 需要上传 `http` 文件的话请先调用 `download_file` API 下载
+:::
+
+## `get_unidirectional_friend_list` 获取单向好友列表
+
+::: tip 提示
+该 API 无需参数
+:::
+
+### 响应数据
+
+响应内容为 json 数组, 每个元素如下：
+
+| 字段名    | 数据类型     | 说明  |
+| --------- | ------------ | ----- |
+| `user_id` | number (int64) | QQ 号 |
+| `nickname` | string       | 昵称  |
+| `source`  | string       | 来源  |
+
+## `delete_friend` 删除好友
+
+### 参数
+
+| 字段名    | 数据类型     | 默认值 | 说明       |
+| --------- | ------------ | ------ | ---------- |
+| `user_id` | number (int64) | -      | 好友 QQ 号 |
+
+::: tip 提示
+该 API 无响应数据
+:::
+
+## `delete_unidirectional_friend` 删除单向好友
+
+### 参数
+
+| 字段名    | 数据类型     | 说明         |
+| --------- | ------------ | ------------ |
+| `user_id` | number (int64) | 单向好友QQ号 |
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## `set_group_portrait` 设置群头像
+
+### 参数
+
+| 字段名    | 数据类型     | 说明                     |
+| --------- | ------------ | ------------------------ |
+| `group_id` | number (int64) | 群号                     |
+| `file`    | string       | 图片文件名               |
+| `cache`   | number (int32) | 表示是否使用已缓存的文件 |
+
+::: tip 提示
+`file` **参数**支持以下几种格式：
+
+- 绝对路径, 例如 `file:///C:\\Users\Richard\Pictures\1.png`, 格式使用 [`file` URI](https://tools.ietf.org/html/rfc8089)
+- 网络 URL, 例如 `http://i1.piimg.com/567571/fdd6e7b6d93f1ef0.jpg`
+- Base64 编码, 例如 `base64://iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAAKElEQVQ4EWPk5+RmIBcwkasRpG9UM4mhNxpgowFGMARGEwnBIEJVAAAdBgBNAZf+QAAAAABJRU5ErkJggg==`
+
+`cache`**参数**: 通过网络 URL 发送时有效, `1`表示使用缓存, `0`关闭关闭缓存, 默认 为`1`
+
+目前这个API在登录一段时间后因cookie失效而失效, 请考虑后使用
+:::
+
+## `get_essence_msg_list` 获取精华消息列表
+
+### 参数
+
+| 字段名    | 数据类型     | 说明 |
+| --------- | ------------ | ---- |
+| `group_id` | number (int64) | 群号 |
+
+### 响应数据
+
+响应内容为 JSON 数组，每个元素如下：
+
+| 字段名        | 数据类型     | 说明         |
+| ------------- | ------------ | ------------ |
+| `sender_id`   | number (int64) | 发送者QQ 号  |
+| `sender_nick` | string       | 发送者昵称   |
+| `sender_time` | number (int64) | 消息发送时间 |
+| `operator_id` | number (int64) | 操作者QQ 号  |
+| `operator_nick` | string       | 操作者昵称   |
+| `operator_time` | number (int64) | 精华设置时间 |
+| `message_id` | number (int32) | 消息ID       |
+
+## `get_group_at_all_remain` 获取群 @全体成员 剩余次数
+
+### 参数
+
+| 字段名    | 数据类型     | 说明 |
+| --------- | ------------ | ---- |
+| `group_id` | number (int64) | 群号 |
+
+### 响应数据
+
+| 字段名                          | 数据类型     | 说明                                |
+| ------------------------------- | ------------ | ----------------------------------- |
+| `can_at_all`                    | boolean      | 是否可以 @全体成员                  |
+| `remain_at_all_count_for_group` | number (int16) | 群内所有管理当天剩余 @全体成员 次数 |
+| `remain_at_all_count_for_uin`   | number (int16) | Bot 当天剩余 @全体成员 次数         |
+
+## `qidian_get_account_info` 获取企点账号信息
+
+::: tip 注意
+该API只有企点协议可用
+:::
+
+### 响应数据
+
+| 字段名        | 数据类型     | 说明         |
+| ------------- | ------------ | ------------ |
+| `master_id`   | number (int64) | 父账号ID     |
+| `ext_name`    | string       | 用户昵称     |
+| `create_time` | number (int64) | 账号创建时间 |
+
+## `_get_model_show` 获取在线机型
+
+::: tip 提示
+有关例子可从[这个链接](https://github.com/Mrs4s/go-cqhttp/pull/872#issuecomment-831180149)找到
+:::
+
+### 参数
+
+| 字段名  | 数据类型 | 说明     |
+| ------- | -------- | -------- |
+| `model` | string   | 机型名称 |
+
+### 响应数据
+
+| 字段名     | 数据类型 | 说明 |
+| ---------- | -------- | ---- |
+| `variants` | array    | -    |
+
+响应内容为 JSON 数组，每个元素如下：
+
+| 字段名       | 数据类型 | 说明 |
+| ------------ | -------- | ---- |
+| `model_show` | string   | -    |
+| `need_pay`   | boolean  | -    |
+
+## `_set_model_show` 设置在线机型
+
+::: tip 提示
+有关例子可从[这个链接](https://github.com/Mrs4s/go-cqhttp/pull/872#issuecomment-831180149)找到
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 说明     |
+| ------------ | -------- | -------- |
+| `model`      | string   | 机型名称 |
+| `model_show` | string   | -        |
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## `get_online_clients` 获取当前账号在线客户端列表
+
+### 参数
+
+| 字段名     | 数据类型 | 说明         |
+| ---------- | -------- | ------------ |
+| `no_cache` | boolean  | 是否无视缓存 |
+
+### 响应数据
+
+| 字段名    | 数据类型 | 说明           |
+| --------- | -------- | -------------- |
+| `clients` | Device[] | 在线客户端列表 |
+
+**Device**
+
+| 字段名        | 数据类型     | 说明     |
+| ------------- | ------------ | -------- |
+| `app_id`      | number (int64) | 客户端ID |
+| `device_name` | string       | 设备名称 |
+| `device_kind` | string       | 设备类型 |
+
+## `ocr_image` 图片 OCR
+
+::: warning 注意
+目前图片OCR接口仅支持接受的图片
+:::
+
+### 参数
+
+| 字段名  | 数据类型 | 说明   |
+| ------- | -------- | ------ |
+| `image` | string   | 图片ID |
+
+### 响应数据
+
+| 字段名     | 数据类型        | 说明    |
+| ---------- | --------------- | ------- |
+| `texts`    | TextDetection[] | OCR结果 |
+| `language` | string          | 语言    |
+
+**TextDetection**
+
+| 字段名        | 数据类型  | 说明   |
+| ------------- | --------- | ------ |
+| `text`        | string    | 文本   |
+| `confidence`  | number (int32) | 置信度 |
+| `coordinates` | vector2[] | 坐标   |
+
+## `set_qq_profile` 设置登录号资料
+
+### 参数
+
+| 字段名          | 数据类型 | 默认值 | 说明     |
+| --------------- | -------- | ------ | -------- |
+| `nickname`      | string   | -      | 名称     |
+| `company`       | string   | -      | 公司     |
+| `email`         | string   | -      | 邮箱     |
+| `college`       | string   | -      | 学校     |
+| `personal_note` | string   | -      | 个人说明 |
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## `download_file` 下载文件到缓存目录
+
+### 参数
+
+| 字段名         | 数据类型         | 说明          |
+| -------------- | ---------------- | ------------- |
+| `url`          | string           | 链接地址      |
+| `thread_count` | number (int32)   | 下载线程数    |
+| `headers`      | string 或 array  | 自定义请求头  |
+
+**`headers`格式:**
+
+字符串:
+
+```
+User-Agent=YOUR_UA[\r\n]Referer=https://www.baidu.com
+```
+
+::: tip 提示
+`[\r\n]` 为换行符, 使用http请求时请注意编码
+:::
+
+JSON数组:
+
+```json
+[
+    "User-Agent=YOUR_UA",
+    "Referer=https://www.baidu.com"
+]
+```
+
+### 响应数据
+
+| 字段名   | 数据类型 | 说明                 |
+| -------- | -------- | -------------------- |
+| `file`   | string   | 下载文件的*绝对路径* |
+
+::: tip 提示
+通过这个API下载的文件能直接放入CQ码作为图片或语音发送
+
+调用后会阻塞直到下载完成后才会返回数据，请注意下载大文件时的超时
+:::
+
+## `check_url_safely` 检查链接安全性
+
+### 参数
+
+| 字段名  | 数据类型 | 说明             |
+| ------- | -------- | ---------------- |
+| `url`   | string   | 需要检查的链接   |
+
+### 响应数据
+
+| 字段名   | 数据类型     | 说明                                    |
+| -------- | ------------ | --------------------------------------- |
+| `level`  | number (int32) | 安全等级, 1: 安全 2: 未知 3: 危险      |
