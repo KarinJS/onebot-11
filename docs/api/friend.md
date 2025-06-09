@@ -112,9 +112,9 @@
 
 - `NapCat`
 
-| 字段名     | 数据类型 | 默认值  | 说明                                                 |
-| ---------- | -------- | ------- | ---------------------------------------------------- |
-| `user_id`  | number   | -       | QQ 号                                                |
+| 字段名    | 数据类型 | 默认值 | 说明  |
+| --------- | -------- | ------ | ----- |
+| `user_id` | number   | -      | QQ 号 |
 
 ### 响应数据
 
@@ -131,6 +131,16 @@
 
 - `get_friend_list`
 
+::: details 点击查看请求示例数据
+
+```json
+{
+  "no_cache": true // [!code warning] 仅napcat有效
+}
+```
+
+:::
+
 ::: details 点击查看响应示例数据
 
 ```json
@@ -145,9 +155,57 @@
 
 :::
 
+::: details 点击查看Lagrange响应示例数据
+
+```json
+[
+  {
+    "birthday_year": 0,
+    "birthday_month": 0,
+    "birthday_day": 0,
+    "user_id": 0,
+    "age": 0,
+    "phone_num": "string",
+    "email": "string",
+    "category_id": 0,
+    "nickname": "string",
+    "remark": "string",
+    "sex": "string",
+    "level": 0
+  }
+]
+```
+
+:::
+
+::: details 点击查看Lagrange响应示例数据
+
+```json
+[
+  {
+    "user_id": 0,
+    "q_id": "string",
+    "nickname": "string",
+    "remark": "string",
+    "group": {
+      "group_id": 0,
+      "group_name": "string"
+    }
+  }
+]
+```
+
+:::
+
 ### 参数
 
 无
+
+- `NapCat`
+
+| 字段名     | 数据类型 | 默认值  | 说明                                                 |
+| ---------- | -------- | ------- | ---------------------------------------------------- |
+| `no_cache` | boolean  | `false` | 是否不使用缓存（使用缓存可能更新不及时，但响应更快） |
 
 ### 响应数据
 
@@ -159,6 +217,35 @@
 | `nickname` | string         | 昵称   |
 | `remark`   | string         | 备注名 |
 
+- `NapCat`
+
+| 字段名           | 数据类型       | 说明     |
+| ---------------- | -------------- | -------- |
+| `user_id`        | number (int64) | QQ 号    |
+| `nickname`       | string         | 昵称     |
+| `remark`         | string         | 备注名   |
+| `birthday_year`  | number (int32) | 生日年份 |
+| `birthday_month` | number (int32) | 生日月份 |
+| `birthday_day`   | number (int32) | 生日日期 |
+| `age`            | number (int32) | 年龄     |
+| `phone_num`      | string         | 手机号   |
+| `email`          | string         | 邮箱     |
+| `category_id`    | number (int32) | 分组ID   |
+| `sex`            | string         | 性别     |
+| `level`          | number (int32) | 等级     |
+
+- `Lagrange`
+
+| 字段名             | 数据类型       | 说明     |
+| ------------------ | -------------- | -------- |
+| `user_id`          | number (int64) | QQ 号    |
+| `nickname`         | string         | 昵称     |
+| `remark`           | string         | 备注名   |
+| `q_id`             | string         | QID      |
+| `group`            | object         | 分组信息 |
+| `group.group_id`   | number (int64) | 分组ID   |
+| `group.group_name` | string         | 分组名称 |
+
 ## 获取单向好友列表
 
 - `get_unidirectional_friend_list` (gocq拓展)
@@ -166,14 +253,15 @@
 ::: details 点击查看响应示例数据
 
 ```json
-{
-  "data": [
-    {
-      "user_id": 123456789,
-      "nickname": "某人"
-    }
-  ]
-}
+[
+  {
+    "uin": 0,
+    "uid": "string",
+    "nick_name": "string",
+    "age": 0,
+    "source": "string"
+  }
+]
 ```
 
 :::
@@ -189,6 +277,16 @@
 | `user_id`  | number   | 单向好友 QQ 号 |
 | `nickname` | string   | 单向好友昵称   |
 
+- `NapCat`
+
+| 字段名     | 数据类型 | 说明           |
+| ---------- | -------- | -------------- |
+| `uin`      | number   | 单向好友 QQ 号 |
+| `uid`      | string   | 单向好友 QQ 号 |
+| `nick_name` | string   | 单向好友昵称   |
+| `age`      | number   | 单向好友年龄   |
+| `source`   | string   | 单向好友来源   |
+
 ## 删除好友
 
 - `delete_friend` (gocq拓展)
@@ -203,6 +301,41 @@
 
 :::
 
+::: details 点击查看NapCat请求示例数据
+
+```json
+{
+  "user_id": 123456789,
+  "friend_id": 123456789,
+  "temp_block": true,
+  "temp_both_del": true
+}
+```
+
+:::
+
+::: details 点击查看Lagrange请求示例数据
+
+```json
+{
+  "user_id": 123456789,
+  "block": true,
+}
+```
+
+:::
+
+::: details 点击查看NapCat响应示例数据
+
+```json
+{
+  "result": 0,
+  "errMsg": "string"
+}
+```
+
+:::
+
 ### 参数
 
 | 字段名    | 数据类型 | 默认值 | 说明       |
@@ -212,6 +345,13 @@
 ### 响应数据
 
 无
+
+- `NapCat`
+
+| 字段名     | 数据类型 | 说明       |
+| ---------- | -------- | ---------- |
+| `result`   | number   | 结果       |
+| `errMsg`   | string   | 错误信息   |
 
 ## 删除单向好友
 
