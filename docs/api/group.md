@@ -1362,7 +1362,7 @@
 
 ## 删除群公告
 
-- `__del_group_notice` (gocq拓展)
+- `_del_group_notice` (gocq拓展)
 
 ::: details 点击查看请求示例数据
 

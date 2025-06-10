@@ -48,32 +48,32 @@
 
 | api                       | 名称                      | gocq | NapCat | Lagrange | 备注     |
 | ------------------------- | ------------------------- | ---- | ------ | -------- | -------- |
-| `set_group_kick`          | 群组踢人                  | ✅    | ✅      | ✅        |          |
-| `set_group_ban`           | 群组单人禁言              | ✅    | ✅      | ✅        |          |
-| `set_group_anonymous_ban` | 群组匿名用户禁言          | ❌    | ❌      | ❌        | 匿名没了 |
-| `set_group_whole_ban`     | 群组全员禁言              | ✅    | ✅      | ✅        |          |
-| `set_group_admin`         | 群组设置管理员            | ✅    | ✅      | ✅        |          |
-| `set_group_anonymous`     | 群组匿名                  | ❌    | ❌      | ❌        | 匿名没了 |
-| `set_group_card`          | 设置群名片（群备注）      | ✅    | ✅      | ✅        |          |
-| `set_group_name`          | 设置群名                  | ✅    | ✅      | ✅        |          |
-| `set_group_leave`         | 退出群组                  | ✅    | ✅      | ☑️        |          |
-| `set_group_special_title` | 设置群组专属头衔          | ✅    | ✅      | ☑️        |          |
-| `get_group_info`          | 获取群信息                | ✅    | ☑️      | ✅        |          |
-| `get_group_list`          | 获取群列表                | ✅    | ☑️      | ✅        |          |
-| `get_group_member_info`   | 获取群成员信息            | ✅    | ☑️      | ☑️        |          |
-| `get_group_member_list`   | 获取群成员列表            | ✅    | ☑️      | ☑️        |          |
-| `get_group_honor_info`    | 获取群荣誉信息            | ✅    | ☑️      | ☑️        |          |
-| `set_group_add_request`   | 处理加群请求／邀请        | ✅    | ☑️      | ✅        |          |
-| `set_group_portrait`      | 设置群头像                | ✅    | ✅      | ✅        | gocq拓展 |
-| `set_essence_msg`         | 设置精华消息              | ✅    | ✅      | ✅        | gocq拓展 |
-| `delete_essence_msg`      | 移出精华消息              | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_essence_msg_list`    | 获取精华消息列表          | ✅    | ☑️      | ☑️        | gocq拓展 |
-| `send_group_sign`         | 群打卡                    | ✅    | ✅      | ❌        | gocq拓展 |
-| `_get_group_notice`       | 获取群公告                | ✅    | ✅      | ✅        | gocq拓展 |
-| `_send_group_notice`      | 发送群公告                | ✅    | ☑️      | ✅        | gocq拓展 |
-| `__del_group_notice`      | 删除群公告                | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_group_system_msg`    | 获取群系统消息            | ✅    | ⚠️      | ❌        | gocq拓展 |
-| `get_group_at_all_remain` | 获取群 @全体成员 剩余次数 | ✅    | ✅      | ❌        | gocq拓展 |
+| [set_group_kick]          | 群组踢人                  | ✅    | ✅      | ✅        |          |
+| [set_group_ban]           | 群组单人禁言              | ✅    | ✅      | ✅        |          |
+| [set_group_anonymous_ban] | 群组匿名用户禁言          | ❌    | ❌      | ❌        | 匿名没了 |
+| [set_group_whole_ban]     | 群组全员禁言              | ✅    | ✅      | ✅        |          |
+| [set_group_admin]         | 群组设置管理员            | ✅    | ✅      | ✅        |          |
+| [set_group_anonymous]     | 群组匿名                  | ❌    | ❌      | ❌        | 匿名没了 |
+| [set_group_card]          | 设置群名片（群备注）      | ✅    | ✅      | ✅        |          |
+| [set_group_name]          | 设置群名                  | ✅    | ✅      | ✅        |          |
+| [set_group_leave]         | 退出群组                  | ✅    | ✅      | ☑️        |          |
+| [set_group_special_title] | 设置群组专属头衔          | ✅    | ✅      | ☑️        |          |
+| [get_group_info]          | 获取群信息                | ✅    | ☑️      | ✅        |          |
+| [get_group_list]          | 获取群列表                | ✅    | ☑️      | ✅        |          |
+| [get_group_member_info]   | 获取群成员信息            | ✅    | ☑️      | ☑️        |          |
+| [get_group_member_list]   | 获取群成员列表            | ✅    | ☑️      | ☑️        |          |
+| [get_group_honor_info]    | 获取群荣誉信息            | ✅    | ☑️      | ☑️        |          |
+| [set_group_add_request]   | 处理加群请求／邀请        | ✅    | ☑️      | ✅        |          |
+| [set_group_portrait]      | 设置群头像                | ✅    | ✅      | ✅        | gocq拓展 |
+| [set_essence_msg]         | 设置精华消息              | ✅    | ✅      | ✅        | gocq拓展 |
+| [delete_essence_msg]      | 移出精华消息              | ✅    | ✅      | ✅        | gocq拓展 |
+| [get_essence_msg_list]    | 获取精华消息列表          | ✅    | ☑️      | ☑️        | gocq拓展 |
+| [send_group_sign]         | 群打卡                    | ✅    | ✅      | ❌        | gocq拓展 |
+| [_get_group_notice]       | 获取群公告                | ✅    | ✅      | ✅        | gocq拓展 |
+| [_send_group_notice]      | 发送群公告                | ✅    | ☑️      | ✅        | gocq拓展 |
+| [_del_group_notice]    | 删除群公告                | ✅    | ✅      | ✅        | gocq拓展 |
+| [get_group_system_msg]    | 获取群系统消息            | ✅    | ⚠️      | ❌        | gocq拓展 |
+| [get_group_at_all_remain] | 获取群 @全体成员 剩余次数 | ✅    | ✅      | ❌        | gocq拓展 |
 
 ## 文件相关
 
@@ -141,3 +141,29 @@
 [get_unidirectional_friend_list]: ./friend.md#获取单向好友列表
 [delete_friend]: ./friend.md#删除好友
 [delete_unidirectional_friend]: ./friend.md#删除单向好友
+[set_group_kick]: ./group.md#群组踢人
+[set_group_ban]: ./group.md#群组单人禁言
+[set_group_anonymous_ban]: ./group.md#群组匿名用户禁言
+[set_group_whole_ban]: ./group.md#群组全员禁言
+[set_group_admin]: ./group.md#群组设置管理员
+[set_group_anonymous]: ./group.md#群组匿名
+[set_group_card]: ./group.md#设置群名片
+[set_group_name]: ./group.md#设置群名
+[set_group_leave]: ./group.md#退出群组
+[set_group_special_title]: ./group.md#设置群组专属头衔
+[get_group_info]: ./group.md#获取群信息
+[get_group_list]: ./group.md#获取群列表
+[get_group_member_info]: ./group.md#获取群成员信息
+[get_group_member_list]: ./group.md#获取群成员列表
+[get_group_honor_info]: ./group.md#获取群荣誉信息
+[set_group_add_request]: ./group.md#处理加群请求／邀请
+[set_group_portrait]: ./group.md#设置群头像
+[set_essence_msg]: ./group.md#设置精华消息
+[delete_essence_msg]: ./group.md#移出精华消息
+[get_essence_msg_list]: ./group.md#获取精华消息列表
+[send_group_sign]: ./group.md#群打卡
+[_get_group_notice]: ./group.md#获取群公告
+[_send_group_notice]: ./group.md#发送群公告
+[_del_group_notice]: ./group.md#删除群公告
+[get_group_system_msg]: ./group.md#获取群系统消息
+[get_group_at_all_remain]: ./group.md#获取群@全体成员剩余次数
