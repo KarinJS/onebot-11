@@ -26,7 +26,7 @@
 | [delete_msg]               | 撤回消息             | ✅    | ✅      | ✅        |          |
 | [get_msg]                  | 获取消息             | ✅    | ✅      | ✅        |          |
 | [get_forward_msg]          | 获取合并转发消息     | ✅    | ✅      | ✅        |          |
-| [send_forward_msg]         | 发送合并转发消息     | ✅    | ✅      | ⚠️        |          |
+| [send_forward_msg]         | 发送合并转发消息     | ✅    | ✅      | ⚠️        | gocq拓展 |
 | [send_group_forward_msg]   | 发送合并转发(群聊)   | ✅    | ✅      | ✅        | gocq拓展 |
 | [send_private_forward_msg] | 发送合并转发(好友)   | ✅    | ✅      | ✅        | gocq拓展 |
 | [get_group_msg_history]    | 获取群消息历史记录   | ✅    | ☑️      | ⚠️        | gocq拓展 |
@@ -63,16 +63,17 @@
 | `get_group_member_info`   | 获取群成员信息            | ✅    | ☑️      | ☑️        |          |
 | `get_group_member_list`   | 获取群成员列表            | ✅    | ☑️      | ☑️        |          |
 | `get_group_honor_info`    | 获取群荣誉信息            | ✅    | ☑️      | ☑️        |          |
-| `set_group_add_request`   | 处理加群请求／邀请        | ✅    | ✅      | ✅        |          |
+| `set_group_add_request`   | 处理加群请求／邀请        | ✅    | ☑️      | ✅        |          |
 | `set_group_portrait`      | 设置群头像                | ✅    | ✅      | ✅        | gocq拓展 |
 | `set_essence_msg`         | 设置精华消息              | ✅    | ✅      | ✅        | gocq拓展 |
 | `delete_essence_msg`      | 移出精华消息              | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_essence_msg_list`    | 获取精华消息列表          | ✅    | ✅      | ✅        | gocq拓展 |
-| `send_group_sign`         | 群打卡                    | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_group_notice`        | 获取群公告                | ✅    | ✅      | ✅        | gocq拓展 |
-| `send_group_notice`       | 发送群公告                | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_group_system_msg`    | 获取群系统消息            | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_group_at_all_remain` | 获取群 @全体成员 剩余次数 | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_essence_msg_list`    | 获取精华消息列表          | ✅    | ☑️      | ☑️        | gocq拓展 |
+| `send_group_sign`         | 群打卡                    | ✅    | ✅      | ❌        | gocq拓展 |
+| `_get_group_notice`       | 获取群公告                | ✅    | ✅      | ✅        | gocq拓展 |
+| `_send_group_notice`      | 发送群公告                | ✅    | ☑️      | ✅        | gocq拓展 |
+| `__del_group_notice`      | 删除群公告                | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_group_system_msg`    | 获取群系统消息            | ✅    | ⚠️      | ❌        | gocq拓展 |
+| `get_group_at_all_remain` | 获取群 @全体成员 剩余次数 | ✅    | ✅      | ❌        | gocq拓展 |
 
 ## 文件相关
 
