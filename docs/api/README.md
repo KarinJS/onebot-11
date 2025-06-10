@@ -71,7 +71,7 @@
 | [send_group_sign]         | 群打卡                    | ✅    | ✅      | ❌        | gocq拓展 |
 | [_get_group_notice]       | 获取群公告                | ✅    | ✅      | ✅        | gocq拓展 |
 | [_send_group_notice]      | 发送群公告                | ✅    | ☑️      | ✅        | gocq拓展 |
-| [_del_group_notice]    | 删除群公告                | ✅    | ✅      | ✅        | gocq拓展 |
+| [_del_group_notice]       | 删除群公告                | ✅    | ✅      | ✅        | gocq拓展 |
 | [get_group_system_msg]    | 获取群系统消息            | ✅    | ⚠️      | ❌        | gocq拓展 |
 | [get_group_at_all_remain] | 获取群 @全体成员 剩余次数 | ✅    | ✅      | ❌        | gocq拓展 |
 
@@ -79,48 +79,48 @@
 
 | api                          | 名称                 | gocq | NapCat | Lagrange | 备注     |
 | ---------------------------- | -------------------- | ---- | ------ | -------- | -------- |
-| `get_group_file_url`         | 获取群文件资源链接   | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_private_file_url`       | 获取私聊文件资源链接 | ✅    | ✅      | ✅        | gocq拓展 |
-| `upload_group_file`          | 上传群文件           | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_group_file_system_info` | 获取群文件系统信息   | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_group_root_files`       | 获取群根目录文件列表 | ✅    | ✅      | ✅        | gocq拓展 |
-| `get_group_files_by_folder`  | 获取群子目录文件列表 | ✅    | ✅      | ✅        | gocq拓展 |
-| `delete_group_file`          | 删除群文件           | ✅    | ✅      | ✅        | gocq拓展 |
-| `create_group_file_folder`   | 创建群文件文件夹     | ✅    | ✅      | ✅        | gocq拓展 |
-| `delete_group_folder`        | 删除群文件文件夹     | ✅    | ✅      | ✅        | gocq拓展 |
-| `upload_private_file`        | 上传私聊文件         | ✅    | ✅      | ✅        | gocq拓展 |
+| [get_group_file_url]         | 获取群文件资源链接   | ✅    | ✅      | ✅        | gocq拓展 |
+| [get_private_file_url]       | 获取私聊文件资源链接 | ✅    | ✅      | ✅        | gocq拓展 |
+| [upload_group_file]          | 上传群文件           | ✅    | ☑️      | ✅        | gocq拓展 |
+| [get_group_file_system_info] | 获取群文件系统信息   | ✅    | ✅      | ❌        | gocq拓展 |
+| [get_group_root_files]       | 获取群根目录文件列表 | ✅    | ✅      | ✅        | gocq拓展 |
+| [get_group_files_by_folder]  | 获取群子目录文件列表 | ✅    | ✅      | ✅        | gocq拓展 |
+| [delete_group_file]          | 删除群文件           | ✅    | ✅      | ✅        | gocq拓展 |
+| [create_group_file_folder]   | 创建群文件文件夹     | ✅    | ⚠️      | ✅        | gocq拓展 |
+| [delete_group_folder]        | 删除群文件文件夹     | ✅    | ✅      | ⚠️        | gocq拓展 |
+| [upload_private_file]        | 上传私聊文件         | ✅    | ☑️      | ✅        | gocq拓展 |
 
 ## Bot自身
 
 | api                       | 名称                       | gocq | NapCat | Lagrange | 备注     |
 | ------------------------- | -------------------------- | ---- | ------ | -------- | -------- |
-| `get_login_info`          | 获取登录号信息             | ✅    | ✅      | ✅        |          |
-| `get_cookies`             | 获取 Cookies               | ✅    | ✅      | ✅        |          |
-| `get_csrf_token`          | 获取 CSRF Token            | ✅    | ✅      | ✅        |          |
-| `get_credentials`         | 获取 QQ 相关接口凭证       | ✅    | ✅      | ✅        |          |
-| `get_record`              | 获取语音                   | ✅    | ✅      | ✅        |          |
-| `get_image`               | 获取图片                   | ✅    | ✅      | ✅        |          |
-| `can_send_image`          | 检查是否可以发送图片       | ✅    | ✅      | ✅        |          |
-| `can_send_record`         | 检查是否可以发送语音       | ✅    | ✅      | ✅        |          |
-| `get_status`              | 获取运行状态               | ✅    | ✅      | ✅        |          |
-| `get_version_info`        | 获取版本信息               | ✅    | ✅      | ✅        |          |
-| `get_online_clients`      | 获取当前账号在线客户端列表 | ✅    | ✅      | ✅        | gocq拓展 |
-| `qidian_get_account_info` | 获取企点账号信息           | ✅    | ✅      | ✅        | gocq拓展 |
-| `_get_model_show`         | 获取在线机型               | ✅    | ✅      | ✅        | gocq拓展 |
-| `_set_model_show`         | 设置在线机型               | ✅    | ✅      | ✅        | gocq拓展 |
-| `set_qq_profile`          | 设置登录号资料             | ✅    | ✅      | ✅        | gocq拓展 |
+| `get_login_info`          | 获取登录号信息             | -    | -      | -        |          |
+| `get_cookies`             | 获取 Cookies               | -    | -      | -        |          |
+| `get_csrf_token`          | 获取 CSRF Token            | -    | -      | -        |          |
+| `get_credentials`         | 获取 QQ 相关接口凭证       | -    | -      | -        |          |
+| `get_record`              | 获取语音                   | -    | -      | -        |          |
+| `get_image`               | 获取图片                   | -    | -      | -        |          |
+| `can_send_image`          | 检查是否可以发送图片       | -    | -      | -        |          |
+| `can_send_record`         | 检查是否可以发送语音       | -    | -      | -        |          |
+| `get_status`              | 获取运行状态               | -    | -      | -        |          |
+| `get_version_info`        | 获取版本信息               | -    | -      | -        |          |
+| `get_online_clients`      | 获取当前账号在线客户端列表 | -    | -      | -        | gocq拓展 |
+| `qidian_get_account_info` | 获取企点账号信息           | -    | -      | -        | gocq拓展 |
+| `_get_model_show`         | 获取在线机型               | -    | -      | -        | gocq拓展 |
+| `_set_model_show`         | 设置在线机型               | -    | -      | -        | gocq拓展 |
+| `set_qq_profile`          | 设置登录号资料             | -    | -      | -        | gocq拓展 |
 
 ## 其他API
 
 | api                       | 名称               | gocq | NapCat | Lagrange | 备注     |
 | ------------------------- | ------------------ | ---- | ------ | -------- | -------- |
-| `set_restart`             | 重启 OneBot 实现   | ✅    | ✅      | ✅        |          |
-| `clean_cache`             | 清理缓存           | ✅    | ✅      | ✅        |          |
-| `ocr_image`               | 图片 OCR           | ✅    | ✅      | ✅        | gocq拓展 |
-| `download_file`           | 下载文件到缓存目录 | ✅    | ✅      | ✅        | gocq拓展 |
-| `check_url_safely`        | 检查链接安全性     | ✅    | ✅      | ✅        | gocq拓展 |
-| `.handle_quick_operation` | 对事件执行快速操作 | ✅    | ✅      | ✅        |          |
-| `.get_word_slices`        | 获取中文分词       | ✅    | ✅      | ✅        | gocq拓展 |
+| `set_restart`             | 重启 OneBot 实现   | -    | -      | -        |          |
+| `clean_cache`             | 清理缓存           | -    | -      | -        |          |
+| `ocr_image`               | 图片 OCR           | -    | -      | -        | gocq拓展 |
+| `download_file`           | 下载文件到缓存目录 | -    | -      | -        | gocq拓展 |
+| `check_url_safely`        | 检查链接安全性     | -    | -      | -        | gocq拓展 |
+| `.handle_quick_operation` | 对事件执行快速操作 | -    | -      | -        |          |
+| `.get_word_slices`        | 获取中文分词       | -    | -      | -        | gocq拓展 |
 
 [send_msg]: ./message.md#发送消息
 [send_private_msg]: ./message.md#发送私聊消息
@@ -141,6 +141,7 @@
 [get_unidirectional_friend_list]: ./friend.md#获取单向好友列表
 [delete_friend]: ./friend.md#删除好友
 [delete_unidirectional_friend]: ./friend.md#删除单向好友
+
 [set_group_kick]: ./group.md#群组踢人
 [set_group_ban]: ./group.md#群组单人禁言
 [set_group_anonymous_ban]: ./group.md#群组匿名用户禁言
@@ -167,3 +168,14 @@
 [_del_group_notice]: ./group.md#删除群公告
 [get_group_system_msg]: ./group.md#获取群系统消息
 [get_group_at_all_remain]: ./group.md#获取群@全体成员剩余次数
+
+[get_group_file_url]: ./file.md#获取群文件资源链接
+[get_private_file_url]: ./file.md#获取私聊文件资源链接
+[upload_group_file]: ./file.md#上传群文件
+[get_group_file_system_info]: ./file.md#获取群文件系统信息
+[get_group_root_files]: ./file.md#获取群根目录文件列表
+[get_group_files_by_folder]: ./file.md#获取群子目录文件列表
+[delete_group_file]: ./file.md#删除群文件
+[create_group_file_folder]: ./file.md#创建群文件文件夹
+[delete_group_folder]: ./file.md#删除群文件文件夹
+[upload_private_file]: ./file.md#上传私聊文件
