@@ -145,7 +145,9 @@
 
 ### 响应数据
 
-无
+::: tip 提示
+该 API 没有响应数据
+:::
 
 ## 获取消息
 
@@ -803,7 +805,6 @@
 | `message_id` | number (int64) | 起始消息ID           |
 | `user_id`    | number (int64) | 好友QQ号             |
 | `count`      | number (int64) | 获取数量 可选 默认20 |
-
 
 ### 响应数据
 
