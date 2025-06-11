@@ -27,6 +27,9 @@ jobs:
   # 构建工作
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read # Needed to clone the repository
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,16 +43,43 @@ jobs:
         with:
           node-version: 22
           cache: pnpm # 或 pnpm / yarn
+      # 配置pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      # 安装依赖
       - name: Install dependencies
         run: pnpm install
+      # 编译
       - name: Build with VitePress
         run: pnpm build
+      # 将docs/CNAME文件复制到docs/.vuepress/dist目录下
+      - name: Copy CNAME
+        run: cp docs/CNAME docs/.vuepress/dist/CNAME
+      # 部署到GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
+      # 删除CNAME
+      - name: Remove CNAME
+        run: rm -f docs/.vuepress/dist/CNAME
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Upload to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: onebot
+          entrypoint: https://deno.land/std@0.217.0/http/file_server.ts
+          root: docs/.vuepress/dist
 
   # 部署工作
   deploy:
