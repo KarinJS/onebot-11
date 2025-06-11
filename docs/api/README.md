@@ -94,21 +94,21 @@
 
 | api                       | 名称                       | gocq | NapCat | Lagrange | 备注     |
 | ------------------------- | -------------------------- | ---- | ------ | -------- | -------- |
-| `get_login_info`          | 获取登录号信息             | -    | -      | -        |          |
-| `get_cookies`             | 获取 Cookies               | -    | -      | -        |          |
-| `get_csrf_token`          | 获取 CSRF Token            | -    | -      | -        |          |
-| `get_credentials`         | 获取 QQ 相关接口凭证       | -    | -      | -        |          |
-| `get_record`              | 获取语音                   | -    | -      | -        |          |
-| `get_image`               | 获取图片                   | -    | -      | -        |          |
-| `can_send_image`          | 检查是否可以发送图片       | -    | -      | -        |          |
-| `can_send_record`         | 检查是否可以发送语音       | -    | -      | -        |          |
-| `get_status`              | 获取运行状态               | -    | -      | -        |          |
-| `get_version_info`        | 获取版本信息               | -    | -      | -        |          |
-| `get_online_clients`      | 获取当前账号在线客户端列表 | -    | -      | -        | gocq拓展 |
-| `qidian_get_account_info` | 获取企点账号信息           | -    | -      | -        | gocq拓展 |
-| `_get_model_show`         | 获取在线机型               | -    | -      | -        | gocq拓展 |
-| `_set_model_show`         | 设置在线机型               | -    | -      | -        | gocq拓展 |
-| `set_qq_profile`          | 设置登录号资料             | -    | -      | -        | gocq拓展 |
+| `get_login_info`          | 获取登录号信息             | ✅    | ✅      | ✅        |          |
+| `get_cookies`             | 获取 Cookies               | ✅    | ✅      | ✅        |          |
+| `get_csrf_token`          | 获取 CSRF Token            | ✅    | ✅      | ✅        |          |
+| `get_credentials`         | 获取 QQ 相关接口凭证       | ✅    | ✅      | ✅        |          |
+| `get_record`              | 获取语音                   | ✅    | ☑️      | ❌        |          |
+| `get_image`               | 获取图片                   | ✅    | ✅      | ❌        |          |
+| `can_send_image`          | 检查是否可以发送图片       | ✅    | ✅      | ✅        |          |
+| `can_send_record`         | 检查是否可以发送语音       | ✅    | ✅      | ✅        |          |
+| `get_status`              | 获取运行状态               | ✅    | ✅      | ☑️        |          |
+| `get_version_info`        | 获取版本信息               | ✅    | ✅      | ✅        |          |
+| `get_online_clients`      | 获取当前账号在线客户端列表 | ✅    | ⚠️      | ❌        | gocq拓展 |
+| `qidian_get_account_info` | 获取企点账号信息           | ✅    | ❌      | ❌        | gocq拓展 |
+| `_get_model_show`         | 获取在线机型               | ✅    | ✅      | ❌        | gocq拓展 |
+| `_set_model_show`         | 设置在线机型               | ✅    | ⚠️      | ❌        | gocq拓展 |
+| `set_qq_profile`          | 设置登录号资料             | ✅    | ✅      | ❌        | gocq拓展 |
 
 ## 其他API
 
