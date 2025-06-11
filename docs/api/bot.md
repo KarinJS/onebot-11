@@ -654,7 +654,7 @@
 ```json
 {
   "result": 0,
-  "errMsg": "success"
+  "errMsg": ""
 }
 ```
 
