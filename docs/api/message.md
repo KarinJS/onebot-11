@@ -815,3 +815,269 @@
 ::: tip 提示
 不提供起始序号将默认获取最新的消息
 :::
+
+## 标记消息为已读
+
+- `mark_msg_as_read` (社区拓展)
+
+::: details 点击查看NapCat请求示例数据
+
+```json
+{
+  "group_id": 123456789, // 与user_id二选一
+  "user_id": 123456789 // 与group_id二选一
+}
+```
+
+::: details 点击查看Lagrange请求示例数据
+
+```json
+{
+  "message_id": 123456789
+}
+```
+
+:::
+
+### 参数
+
+- `NapCat`
+
+| 字段名     | 数据类型 | 默认值 | 说明                        |
+| ---------- | -------- | ------ | --------------------------- |
+| `group_id` | number   | -      | 群号 与`user_id`二选一      |
+| `user_id`  | number   | -      | 好友QQ号 与`group_id`二选一 |
+
+- `Lagrange`
+
+| 字段名       | 数据类型 | 默认值 | 说明   |
+| ------------ | -------- | ------ | ------ |
+| `message_id` | number   | -      | 消息ID |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 给消息添加表情回应
+
+- `set_group_reaction` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 0,
+  "message_id": 0,
+  "code": "string",
+  "is_add": true
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明                 |
+| ------------ | -------- | ------ | -------------------- |
+| `group_id`   | number   | -      | 群号                 |
+| `message_id` | number   | -      | 消息ID               |
+| `code`       | string   | -      | 表情ID               |
+| `is_add`     | boolean  | -      | 操作类型，是否是添加 |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 获取群 Ai 语音可用声色列表
+
+- `get_ai_characters` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 42,
+  "chat_type": 1
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+[
+  {
+    "type": "string",
+    "characters": [
+      {
+        "character_id": "string",
+        "character_name": "string",
+        "preview_url": "string"
+      }
+    ]
+  }
+]
+```
+
+:::
+
+### 参数
+
+| 字段名      | 数据类型 | 默认值 | 说明                             |
+| ----------- | -------- | ------ | -------------------------------- |
+| `group_id`  | number   | -      | 可选 群号                        |
+| `chat_type` | number   | 1      | 可选 语音类型  `1=朗读` `2=说唱` |
+
+### 响应数据
+
+> 返回的是一个数组，每个元素是一个对象，对象的类型如下
+
+| 字段名       | 数据类型                  | 说明     |
+| ------------ | ------------------------- | -------- |
+| `type`       | string                    | 类型     |
+| `characters` | [characters](#characters) | 声色列表 |
+
+### characters
+
+| 字段名           | 数据类型 | 说明        |
+| ---------------- | -------- | ----------- |
+| `character_id`   | string   | 声色ID      |
+| `character_name` | string   | 声色名称    |
+| `preview_url`    | string   | 声色预览URL |
+
+## 发送群 Ai 语音
+
+- `send_group_ai_record` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "character": "string",
+  "group_id": 0,
+  "text": "string",
+  "chat_type": 1
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "message_id": 123456789
+}
+```
+
+:::
+
+### 参数
+
+| 字段名      | 数据类型 | 默认值 | 说明                                 |
+| ----------- | -------- | ------ | ------------------------------------ |
+| `character` | string   | -      | 语音声色 通过`get_ai_characters`获取 |
+| `group_id`  | number   | -      | 群号                                 |
+| `text`      | string   | -      | 语音文本                             |
+| `chat_type` | number   | 1      | 可选 语音类型  `1=朗读` `2=说唱`     |
+
+### 响应数据
+
+| 字段名       | 数据类型 | 说明   |
+| ------------ | -------- | ------ |
+| `message_id` | number   | 消息ID |
+
+## 加入群聊表情接龙
+
+- `.join_group_emoji_chain` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 0,
+  "message_id": 0,
+  "emoji_id": 0
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明   |
+| ------------ | -------- | ------ | ------ |
+| `group_id`   | number   | -      | 群号   |
+| `message_id` | number   | -      | 消息ID |
+| `emoji_id`   | number   | -      | 表情ID |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 加入好友表情接龙
+
+- `.join_friend_emoji_reaction` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "user_id": 0,
+  "message_id": 0,
+  "emoji_id": 0
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明     |
+| ------------ | -------- | ------ | -------- |
+| `user_id`    | number   | -      | 好友QQ号 |
+| `message_id` | number   | -      | 消息ID   |
+| `emoji_id`   | number   | -      | 表情ID   |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 调用群机器人回调
+
+- `send_group_bot_callback` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 0,
+  "bot_id": 0,
+  "data_1": "string",
+  "data_2": "string"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名     | 数据类型 | 默认值 | 说明   |
+| ---------- | -------- | ------ | ------ |
+| `group_id` | number   | -      | 群号   |
+| `bot_id`   | number   | -      | Bot ID |
+| `data_1`   | string   | -      | 数据1  |
+| `data_2`   | string   | -      | 数据2  |
+
+### 响应数据
+
+- `Lagrange`: 返回值为 `机器人 Uin`，`number`类型

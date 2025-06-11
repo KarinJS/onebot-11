@@ -641,3 +641,161 @@
 | `creator`          | number (int64) | 创建者     |
 | `creator_name`     | string         | 创建者名字 |
 | `total_file_count` | number (int32) | 子文件数量 |
+
+## 上传图片
+
+- `upload_image` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "file": "D:/image.jpg"
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "file": "图片文件名",
+  "url": "图片URL"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名 | 数据类型 | 默认值 | 说明         |
+| ------ | -------- | ------ | ------------ |
+| `file` | string   | -      | 本地文件路径 |
+
+### 响应数据
+
+| 字段名 | 数据类型 | 说明         |
+| ------ | -------- | ------------ |
+| `file` | string   | 图片文件名   |
+| `url`  | string   | 图片URL      |
+
+## 移动群文件
+
+- `move_group_file` (社区拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 123456789,
+  "file_id": "abcdefg",
+  "folder_id": "/"
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "success": true
+}
+```
+
+:::
+
+### 参数
+
+| 字段名      | 数据类型 | 默认值 | 说明                                                                   |
+| ----------- | -------- | ------ | ---------------------------------------------------------------------- |
+| `group_id`  | number   | -      | 群号                                                                   |
+| `file_id`   | string   | -      | 文件 ID，从 `get_group_root_files` 或 `get_group_files_by_folder` 获取 |
+| `folder_id` | string   | -      | 目标文件夹 ID，根目录为 `/`                                            |
+
+### 响应数据
+
+| 字段名    | 数据类型 | 说明         |
+| --------- | -------- | ------------ |
+| `success` | boolean  | 是否移动成功 |
+
+## 重命名群文件文件夹
+
+- `rename_group_file_folder` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 123456789,
+  "folder_id": "abcdefg",
+  "new_name": "新文件夹名称"
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "success": true
+}
+```
+
+:::
+
+### 参数
+
+| 字段名      | 数据类型 | 默认值 | 说明                                                                   |
+| ----------- | -------- | ------ | ---------------------------------------------------------------------- |
+| `group_id`  | number   | -      | 群号                                                                   |
+| `folder_id` | string   | -      | 文件夹 ID，从 `get_group_root_files` 或 `get_group_files_by_folder` 获取 |
+| `new_name`  | string   | -      | 新文件夹名称                                                           |
+
+### 响应数据
+
+| 字段名    | 数据类型 | 说明         |
+| --------- | -------- | ------------ |
+| `success` | boolean  | 是否重命名成功 |
+
+## 上传图片
+
+- `upload_image` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "file": "D:/image.jpg"
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "file": "图片文件名",
+  "url": "图片URL"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名 | 数据类型 | 默认值 | 说明         |
+| ------ | -------- | ------ | ------------ |
+| `file` | string   | -      | 本地文件路径 |
+
+### 响应数据
+
+| 字段名 | 数据类型 | 说明         |
+| ------ | -------- | ------------ |
+| `file` | string   | 图片文件名   |
+| `url`  | string   | 图片URL      |
+
+

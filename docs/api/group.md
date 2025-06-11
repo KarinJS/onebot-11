@@ -1576,3 +1576,31 @@
 | `can_at_all`                    | boolean  | 是否可以 @全体成员                  |
 | `remain_at_all_count_for_group` | number   | 群内所有管理当天剩余 @全体成员 次数 |
 | `remain_at_all_count_for_uin`   | number   | Bot 当天剩余 @全体成员 次数         |
+
+## 设置群Bot发言状态
+
+- `set_group_bot_status` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 0,
+  "bot_id": 0,
+  "enable": 0
+}
+```
+
+:::
+
+### 参数
+
+| 字段名     | 数据类型 | 默认值 | 说明   |
+| ---------- | -------- | ------ | ------ |
+| `group_id` | number   | -      | 群号   |
+| `bot_id`   | number   | -      | Bot ID |
+| `enable`   | number   | -      | 状态   |
+
+### 响应数据
+
+- `Lagrange`: 返回值为 `机器人ID`，`number`类型

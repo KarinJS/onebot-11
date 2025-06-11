@@ -683,3 +683,135 @@
 ::: tip 提示
 该 API 没有响应数据
 :::
+
+## 获取已收藏的QQ表情列表
+
+- `fetch_custom_face` (Lagrange拓展)
+
+::: details 点击查看响应示例数据
+
+```json
+[
+  "https://p.qpic.cn/qq_expression/xxxxx/xxxxx/0"
+]
+```
+
+:::
+
+### 参数
+
+::: tip 提示
+该 API 没有参数
+:::
+
+### 响应数据
+
+- `Lagrange`: 返回的是一个数组，每个元素是一个表情URL
+
+## 获取商城表情 key
+
+- `get_mface_key` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "emoji_ids": [
+      "string"
+  ]
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+[
+  "string"
+]
+```
+
+### 参数
+
+| 字段名      | 数据类型 | 默认值 | 说明       |
+| ----------- | -------- | ------ | ---------- |
+| `emoji_ids` | array    | -      | 表情ID列表 |
+
+### 响应数据
+
+- `Lagrange`: 返回的是一个数组，每个元素商城表情key
+
+## 设置QQ头像
+
+- `set_qq_avatar` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "file": "file 链接, 支持 http/https/file/base64"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名 | 数据类型 | 默认值 | 说明                                   |
+| ------ | -------- | ------ | -------------------------------------- |
+| `file` | string   | -      | file 链接, 支持 http/https/file/base64 |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 获取rkey
+
+- `get_rkey` (Lagrange拓展)
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "rkeys": [
+    {
+      "type": "private",
+      "rkey": "&rkey=CAMSKMa3OFokB_TlZtfChVGCXKG8j3esIm1ChIbPy6_33HgaR5q8J-sjMNA",
+      "created_at": 1737354674,
+      "ttl": 3420
+    },
+    {
+      "type": "group",
+      "rkey": "&rkey=CAMSKMa3OFokB_TlZtfChVGCXKG8j3esIm1ChIbPy6_33Hgatyz4WskcHic",
+      "created_at": 1737354674,
+      "ttl": 3420
+    }
+  ]
+}
+```
+
+:::
+
+### 参数
+
+::: tip 提示
+该 API 没有参数
+:::
+
+### 响应数据
+
+| 字段名  | 数据类型        | 说明 |
+| ------- | --------------- | ---- |
+| `rkeys` | [rkeys](#rkeys) | rkey |
+
+### rkeys
+
+| 字段名       | 数据类型          | 说明     |
+| ------------ | ----------------- | -------- |
+| `type`       | `private` `group` | 类型     |
+| `rkey`       | string            | rkey     |
+| `created_at` | number            | 创建时间 |
+| `ttl`        | number            | 过期时间 |
