@@ -114,13 +114,14 @@
 
 | api                       | 名称               | gocq | NapCat | Lagrange | 备注     |
 | ------------------------- | ------------------ | ---- | ------ | -------- | -------- |
-| `set_restart`             | 重启 OneBot 实现   | -    | -      | -        |          |
-| `clean_cache`             | 清理缓存           | -    | -      | -        |          |
-| `ocr_image`               | 图片 OCR           | -    | -      | -        | gocq拓展 |
-| `download_file`           | 下载文件到缓存目录 | -    | -      | -        | gocq拓展 |
-| `check_url_safely`        | 检查链接安全性     | -    | -      | -        | gocq拓展 |
-| `.handle_quick_operation` | 对事件执行快速操作 | -    | -      | -        |          |
-| `.get_word_slices`        | 获取中文分词       | -    | -      | -        | gocq拓展 |
+| [set_restart]             | 重启 OneBot 实现   | ❌    | ❌      | ❌        |          |
+| [clean_cache]             | 清理缓存           | ✅    | ✅      | ❌        |          |
+| [ocr_image]               | 图片 OCR           | ✅    | ⚠️      | ✅        | gocq拓展 |
+| [.ocr_image]               | 图片 OCR           | ✅    | ⚠️      | ✅        | gocq拓展 |
+| [download_file]           | 下载文件到缓存目录 | ✅    | ✅      | ❌        | gocq拓展 |
+| [check_url_safely]        | 检查链接安全性     | ✅    | ⚠️      | ❌        | gocq拓展 |
+| [.handle_quick_operation]  | 对事件执行快速操作 | ✅    | ✅      | ❌        |          |
+| [.get_word_slices]         | 获取中文分词       | ✅    | ❌      | ❌        | gocq拓展 |
 
 [send_msg]: ./message.md#发送消息
 [send_private_msg]: ./message.md#发送私聊消息
@@ -195,3 +196,12 @@
 [get_model_show]: ./bot.md#获取在线机型
 [set_model_show]: ./bot.md#设置在线机型
 [set_qq_profile]: ./bot.md#设置登录号资料
+
+[set_restart]: ./other.md#重启-OneBot-实现
+[clean_cache]: ./other.md#清理缓存
+[ocr_image]: ./other.md#图片-OCR
+[.ocr_image]: ./other.md#图片-OCR
+[download_file]: ./other.md#下载文件到缓存目录
+[check_url_safely]: ./other.md#检查链接安全性
+[.handle_quick_operation]: ./other.md#对事件执行快速操作
+[.get_word_slices]: ./other.md#获取中文分词
