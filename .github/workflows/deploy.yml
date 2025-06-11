@@ -52,9 +52,9 @@ jobs:
       # 编译
       - name: Build with VitePress
         run: pnpm build
-      # 将docs/CNAME文件复制到docs/.vuepress/dist目录下
+      # 将docs/CNAME文件复制到docs/.vitepress/dist目录下
       - name: Copy CNAME
-        run: cp docs/CNAME docs/.vuepress/dist/CNAME
+        run: cp docs/CNAME docs/.vitepress/dist/CNAME
       # 部署到GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -62,7 +62,7 @@ jobs:
           path: docs/.vitepress/dist
       # 删除CNAME
       - name: Remove CNAME
-        run: rm -f docs/.vuepress/dist/CNAME
+        run: rm -f docs/.vitepress/dist/CNAME
 
       - name: Install Deno
         uses: denoland/setup-deno@v2
@@ -79,7 +79,7 @@ jobs:
         with:
           project: onebot
           entrypoint: https://deno.land/std@0.217.0/http/file_server.ts
-          root: docs/.vuepress/dist
+          root: docs/.vitepress/dist
 
   # 部署工作
   deploy:
