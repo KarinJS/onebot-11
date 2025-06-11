@@ -5,6 +5,7 @@
   - [响应](#响应)
   - [异步调用](#异步调用)
   - [限速调用](#限速调用)
+  - [隐藏 API](#隐藏-api)
   - [相关配置](#相关配置)
 
 API 是 OneBot 向用户提供的操作接口，用户可通过 HTTP 请求或 WebSocket 消息等方式调用 API。
@@ -23,6 +24,10 @@ OneBot 会对每个 API 调用返回一个 JSON 响应（除非是 HTTP 状态�
 
 ## 异步调用
 
+> [!tip] 吐槽
+> 时间: 2025-06-11
+> 真的有人实现这个吗？
+
 所有 API 都可以通过给 action 附加后缀 `_async` 来进行异步调用，例如 `send_private_msg_async`、`send_msg_async`、`clean_data_dir_async`。
 
 异步调用的响应中，`status` 字段为 `async`。
@@ -31,9 +36,19 @@ OneBot 会对每个 API 调用返回一个 JSON 响应（除非是 HTTP 状态�
 
 ## 限速调用
 
+> [!tip] 吐槽
+> 时间: 2025-06-11
+> 真的有人实现这个吗？
+
 所有 API 都可以通过给 action 附加后缀 `_rate_limited` 来进行限速调用，例如 `send_private_msg_rate_limited`、`send_msg_rate_limited`，不过主要还是用在发送消息接口上，以避免消息频率过快导致腾讯封号。所有限速调用将会以指定速度**排队执行**，这个速度可在配置中指定。
 
 限速调用的响应中，`status` 字段为 `async`。
+
+## 隐藏 API
+
+隐藏 API 是不建议一般用户使用的，它们只应该在 OneBot 实现内部或由 SDK 和框架使用，因为不正确的使用可能造成程序运行不正常。
+
+所有隐藏 API 都以点号（`.`）开头。
 
 ## 相关配置
 

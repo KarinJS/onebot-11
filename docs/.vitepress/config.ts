@@ -30,7 +30,6 @@ export default defineConfig({
         text: '消息',
         items: [
           { text: '消息概述', link: '/message/README.md' },
-          { text: '字符串格式', link: '/message/string.md' },
           { text: '数组格式', link: '/message/array.md' },
           { text: '消息段类型', link: '/message/segment.md' }
         ]
@@ -61,8 +60,6 @@ export default defineConfig({
         items: [
           { text: 'API 概述', link: '/api/Introduction.md' },
           { text: 'API 列表', link: '/api/README.md' },
-          { text: '公开 API', link: '/api/public.md' },
-          { text: '隐藏 API', link: '/api/hidden.md' },
           { text: '消息相关API', link: '/api/message.md' },
           { text: '好友相关API', link: '/api/friend.md' },
           { text: '群聊相关API', link: '/api/group.md' },
