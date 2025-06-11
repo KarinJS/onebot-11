@@ -65,9 +65,14 @@ CQHTTP 插件是 2017 年初出现的基于 CKYU 机器人平台的一款开源�
   - [数组格式](message/array.md)
   - [消息段类型](message/segment.md)
 - **API**
-  - [API 收集](api/README.md)
-  - [公开 API](api/public.md)
-  - [隐藏 API](api/hidden.md)
+  - [API 收集](./api/README.md)
+  - [API 概述](./api/Introduction.md)
+  - [消息 API](./api/message.md)
+  - [好友 API](./api/friend.md)
+  - [群聊 API](./api/group.md)
+  - [文件 API](./api/file.md)
+  - [Bot自身 API](./api/bot.md)
+  - [其他 API](./api/other.md)
 - **事件**
   - [事件概述](event/README.md)
   - [消息事件](event/message.md)

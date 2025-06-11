@@ -1,9 +1,10 @@
 # 正向 WebSocket
 
-- [`/api` 接口](#api-接口)
-- [`/event` 接口](#event-接口)
-- [`/` 接口](#-接口)
-- [相关配置](#相关配置)
+- [正向 WebSocket](#正向-websocket)
+  - [`/api` 接口](#api-接口)
+  - [`/event` 接口](#event-接口)
+  - [`/` 接口](#-接口)
+  - [相关配置](#相关配置)
 
 OneBot 在启动时开启一个 WebSocket 服务器，监听配置文件指定的 IP 和端口，接受路径为 `/api`（或 `/api/`）、`/event`（或 `/event/`）、`/` 的连接请求。连接建立后，将一直保持连接（用户可主动断开连接），并根据路径的不同，提供 API 调用或事件推送服务。通过 WebSocket 消息发送的数据全部使用 JSON 格式。
 
@@ -65,9 +66,3 @@ OneBot 在启动时开启一个 WebSocket 服务器，监听配置文件指定�
 | `ws.enable` | `false` | 是否启用正向 WebSocket |
 | `ws.host` | `0.0.0.0` | WebSocket 服务器监听的 IP |
 | `ws.port` | `6700` | WebSocket 服务器监听的端口 |
-
-<hr>
-
-| 上一节 | 下一节 |
-| --- | --- |
-| [HTTP POST](http-post.md) | [反向 WebSocket](ws-reverse.md) |

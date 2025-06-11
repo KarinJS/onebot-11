@@ -76,9 +76,3 @@ Content-Type: application/json
 | `http.enable` | `true` | 是否启用 HTTP |
 | `http.host` | `0.0.0.0` | HTTP 服务器监听的 IP |
 | `http.port` | `5700` | HTTP 服务器监听的端口 |
-
-<hr>
-
-| 上一节 | 下一节 |
-| --- | --- |
-| [通信概述](README.md) | [HTTP POST](http-post.md) |

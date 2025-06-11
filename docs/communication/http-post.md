@@ -118,9 +118,3 @@ ctx.assert(ctx.request.headers['x-signature'] === `sha1=${sig}`, 403);
 | `http_post.url` | 空 | 事件上报 URL |
 | `http_post.timeout` | `0` | HTTP 上报超时时间，单位秒，0 表示不设置超时 |
 | `http_post.secret` | 空 | 上报数据签名密钥 |
-
-<hr>
-
-| 上一节 | 下一节 |
-| --- | --- |
-| [HTTP](http.md) | [正向 WebSocket](ws.md) |

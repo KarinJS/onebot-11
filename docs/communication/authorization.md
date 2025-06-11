@@ -1,8 +1,9 @@
 # 鉴权
 
-- [HTTP 和正向 WebSocket](#http-和正向-websocket)
-- [反向 WebSocket](#反向-websocket)
-- [相关配置](#相关配置)
+- [鉴权](#鉴权)
+  - [HTTP 和正向 WebSocket](#http-和正向-websocket)
+  - [反向 WebSocket](#反向-websocket)
+  - [相关配置](#相关配置)
 
 在 HTTP POST 通信方式中，OneBot 提供了 [签名](http-post.md#签名) 来保证安全性，而在 HTTP、正向 WebSocket、反向 WebSocket 通信方式中，通过对 access token 进行验证来保证安全性。
 
@@ -39,9 +40,3 @@ Authorization: Bearer kSLuTF2GC2Q4q4ugm3
 | 配置项名称 | 默认值 | 说明 |
 | -------- | ------ | --- |
 | `auth.access_token` | 空 | access token |
-
-<hr>
-
-| 上一节 | 下一节 |
-| --- | --- |
-| [反向 WebSocket](ws-reverse.md) | [消息概述](../message/README.md) |
