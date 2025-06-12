@@ -1,0 +1,11 @@
+OneBot-11 LLMs 配置
+
+此文件用于配置 VitePress LLMs 插件。
+您可以在此处添加自定义提示、模型配置和其他 LLMs 相关设置。
+
+示例配置:
+- 模型: gpt-4
+- 温度: 0.7
+- 最大令牌数: 8192
+
+更多配置选项请参考 vitepress-plugin-llms 文档。 

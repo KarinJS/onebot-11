@@ -816,85 +816,9 @@
 不提供起始序号将默认获取最新的消息
 :::
 
-## 标记消息为已读
-
-- `mark_msg_as_read` (社区拓展)
-
-::: details 点击查看NapCat请求示例数据
-
-```json
-{
-  "group_id": 123456789, // 与user_id二选一
-  "user_id": 123456789 // 与group_id二选一
-}
-```
-
-::: details 点击查看Lagrange请求示例数据
-
-```json
-{
-  "message_id": 123456789
-}
-```
-
-:::
-
-### 参数
-
-- `NapCat`
-
-| 字段名     | 数据类型 | 默认值 | 说明                        |
-| ---------- | -------- | ------ | --------------------------- |
-| `group_id` | number   | -      | 群号 与`user_id`二选一      |
-| `user_id`  | number   | -      | 好友QQ号 与`group_id`二选一 |
-
-- `Lagrange`
-
-| 字段名       | 数据类型 | 默认值 | 说明   |
-| ------------ | -------- | ------ | ------ |
-| `message_id` | number   | -      | 消息ID |
-
-### 响应数据
-
-::: tip 提示
-该 API 没有响应数据
-:::
-
-## 给消息添加表情回应
-
-- `set_group_reaction` (Lagrange拓展)
-
-::: details 点击查看请求示例数据
-
-```json
-{
-  "group_id": 0,
-  "message_id": 0,
-  "code": "string",
-  "is_add": true
-}
-```
-
-:::
-
-### 参数
-
-| 字段名       | 数据类型 | 默认值 | 说明                 |
-| ------------ | -------- | ------ | -------------------- |
-| `group_id`   | number   | -      | 群号                 |
-| `message_id` | number   | -      | 消息ID               |
-| `code`       | string   | -      | 表情ID               |
-| `is_add`     | boolean  | -      | 操作类型，是否是添加 |
-
-### 响应数据
-
-::: tip 提示
-该 API 没有响应数据
-:::
-
 ## 获取群 Ai 语音可用声色列表
 
-- `get_ai_characters` (Lagrange拓展)
+- `get_ai_characters` (社区拓展)
 
 ::: details 点击查看请求示例数据
 
@@ -952,9 +876,21 @@
 
 ## 发送群 Ai 语音
 
-- `send_group_ai_record` (Lagrange拓展)
+- `send_group_ai_record` (社区拓展)
 
-::: details 点击查看请求示例数据
+::: details 点击查看NapCat请求示例数据
+
+```json
+{
+  "character": "string",
+  "group_id": 0,
+  "text": "string"
+}
+```
+
+:::
+
+::: details 点击查看Lagrange请求示例数据
 
 ```json
 {
@@ -986,11 +922,182 @@
 | `text`      | string   | -      | 语音文本                             |
 | `chat_type` | number   | 1      | 可选 语音类型  `1=朗读` `2=说唱`     |
 
+::: tip 提示
+`NapCat` 的 `chat_type` 参数无效  
+并且返回值的 `message_id` 固定位为 `0`
+:::
+
 ### 响应数据
 
 | 字段名       | 数据类型 | 说明   |
 | ------------ | -------- | ------ |
 | `message_id` | number   | 消息ID |
+
+## 标记消息为已读
+
+- `mark_msg_as_read` (Lagrange拓展)
+
+::: details 点击查看Lagrange请求示例数据
+
+```json
+{
+  "message_id": 123456789
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明   |
+| ------------ | -------- | ------ | ------ |
+| `message_id` | number   | -      | 消息ID |
+
+### 响应
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 给消息添加表情回应
+
+- `set_group_reaction` (Lagrange拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 0,
+  "message_id": 0,
+  "code": "string",
+  "is_add": true
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明                 |
+| ------------ | -------- | ------ | -------------------- |
+| `group_id`   | number   | -      | 群号                 |
+| `message_id` | number   | -      | 消息ID               |
+| `code`       | string   | -      | 表情ID               |
+| `is_add`     | boolean  | -      | 操作类型，是否是添加 |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## NC-给消息添加表情回应
+
+- `set_msg_emoji_like` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "message_id": 123456789,
+  "emoji_id": "emoji_id",
+  "set": true
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "result": 0,
+  "errMsg": "string"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明                    |
+| ------------ | -------- | ------ | ----------------------- |
+| `message_id` | number   | -      | 消息ID                  |
+| `emoji_id`   | string   | -      | 表情ID                  |
+| `set`        | boolean  | -      | true为添加，false为取消 |
+
+### 响应数据
+
+| 字段名   | 数据类型 | 说明     |
+| -------- | -------- | -------- |
+| `result` | number   | 结果     |
+| `errMsg` | string   | 错误信息 |
+
+## 获取消息的表情已回应列表
+
+- `fetch_emoji_like` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "message_id": 123456789,
+  "user_id": 123456789,
+  "emojiType": 123456789,
+  "count": 20
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "result": 0,
+  "errMsg": "string",
+  "emojiLikesList": [
+    {
+      "tinyId": "string",
+      "nickName": "string",
+      "headUrl": "string"
+    }
+  ],
+  "cookie": "string",
+  "isLastPage": true,
+  "isFirstPage": true
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明       |
+| ------------ | -------- | ------ | ---------- |
+| `message_id` | number   | -      | 消息ID     |
+| `user_id`    | number   | -      | 用户ID     |
+| `emojiType`  | number   | -      | 表情类型   |
+| `count`      | number   | 20     | 可选，数量 |
+
+### 响应数据
+
+| 字段名           | 数据类型                          | 说明         |
+| ---------------- | --------------------------------- | ------------ |
+| `result`         | number                            | 结果         |
+| `errMsg`         | string                            | 错误信息     |
+| `emojiLikesList` | [emojiLikesList](#emojiLikesList) | 表情点赞列表 |
+| `cookie`         | string                            | 分页信息     |
+| `isLastPage`     | boolean                           | 是否最后一页 |
+| `isFirstPage`    | boolean                           | 是否第一页   |
+
+#### emojiLikesList
+
+| 字段名     | 数据类型 | 说明     |
+| ---------- | -------- | -------- |
+| `tinyId`   | string   | 表情ID   |
+| `nickName` | string   | 用户昵称 |
+| `headUrl`  | string   | 用户头像 |
 
 ## 加入群聊表情接龙
 
@@ -1081,3 +1188,125 @@
 ### 响应数据
 
 - `Lagrange`: 返回值为 `机器人 Uin`，`number`类型
+
+## 标记私聊消息为已读
+
+- `mark_private_msg_as_read` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "user_id": 123456789,
+  "message_id": 123456789
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明                             |
+| ------------ | -------- | ------ | -------------------------------- |
+| `user_id`    | number   | -      | 好友QQ号，与 `message_id` 二选一 |
+| `message_id` | number   | -      | 消息ID，与 `user_id` 二选一      |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 标记群消息为已读
+
+- `mark_group_msg_as_read` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 123456789,
+  "message_id": 123456789
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明                         |
+| ------------ | -------- | ------ | ---------------------------- |
+| `group_id`   | number   | -      | 群号，与 `message_id` 二选一 |
+| `message_id` | number   | -      | 消息ID，与 `group_id` 二选一 |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 标记所有消息为已读
+
+- `_mark_all_as_read` (NapCat拓展)
+
+### 参数
+
+::: tip 提示
+该 API 无需参数
+:::
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 转发好友单条消息
+
+- `forward_friend_single_msg` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "user_id": 123456789,
+  "message_id": 123456789
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明     |
+| ------------ | -------- | ------ | -------- |
+| `user_id`    | number   | -      | 好友QQ号 |
+| `message_id` | number   | -      | 消息ID   |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 转发群单条消息
+
+- `forward_group_single_msg` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "group_id": 123456789,
+  "message_id": 123456789
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明   |
+| ------------ | -------- | ------ | ------ |
+| `group_id`   | number   | -      | 群号   |
+| `message_id` | number   | -      | 消息ID |

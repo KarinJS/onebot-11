@@ -686,7 +686,15 @@
 
 ## 获取已收藏的QQ表情列表
 
-- `fetch_custom_face` (Lagrange拓展)
+- `fetch_custom_face` (社区拓展)
+
+::: details 点击查看NapCat请求示例数据
+
+```json
+{
+  "count": 48
+}
+```
 
 ::: details 点击查看响应示例数据
 
@@ -700,13 +708,21 @@
 
 ### 参数
 
+- `NapCat`
+
+| 字段名  | 数据类型 | 默认值 | 说明     |
+| ------- | -------- | ------ | -------- |
+| `count` | number   | `48`   | 获取数量 |
+
+- `Lagrange`
+
 ::: tip 提示
 该 API 没有参数
 :::
 
 ### 响应数据
 
-- `Lagrange`: 返回的是一个数组，每个元素是一个表情URL
+返回的是一个数组，每个元素是一个表情URL
 
 ## 获取商城表情 key
 
@@ -744,7 +760,7 @@
 
 ## 设置QQ头像
 
-- `set_qq_avatar` (Lagrange拓展)
+- `set_qq_avatar` (社区拓展)
 
 ::: details 点击查看请求示例数据
 
@@ -770,7 +786,7 @@
 
 ## 获取rkey
 
-- `get_rkey` (Lagrange拓展)
+- `get_rkey` (社区拓展)
 
 ::: details 点击查看响应示例数据
 
@@ -815,3 +831,579 @@
 | `rkey`       | string            | rkey     |
 | `created_at` | number            | 创建时间 |
 | `ttl`        | number            | 过期时间 |
+
+## 获取rkey服务器
+
+- `get_rkey_server` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "private_rkey": "rkey字符串",
+  "group_rkey": "rkey字符串",
+  "expired_time": 1600000000,
+  "name": "NapCat 4"
+}
+```
+
+:::
+
+### 参数
+
+::: tip 提示
+该 API 无需参数
+:::
+
+### 响应数据
+
+| 字段名         | 数据类型 | 说明           |
+| -------------- | -------- | -------------- |
+| `private_rkey` | string   | 私聊rkey字符串 |
+| `group_rkey`   | string   | 群聊rkey字符串 |
+| `expired_time` | number   | 过期时间戳     |
+| `name`         | string   | 服务器名称     |
+
+## 获取NC版rkey
+
+- `nc_get_rkey` (NapCat拓展)
+
+::: details 点击查看响应示例数据
+
+```json
+[
+  {
+    "rkey": "&rkey=xxxx",
+    "ttl": "3420",
+    "time": 1749739597,
+    "type": 10
+  },
+  {
+    "rkey": "&rkey=xxxx",
+    "ttl": "3420",
+    "time": 1749739597,
+    "type": 20
+  }
+]
+```
+
+:::
+
+### 参数
+
+::: tip 提示
+该 API 无需参数
+:::
+
+### 响应数据
+
+返回一个数组，两个元素
+
+| 字段名 | 数据类型 | 说明       |
+| ------ | -------- | ---------- |
+| `rkey` | string   | rkey字符串 |
+| `ttl`  | string   | 过期时间   |
+| `time` | number   | 创建时间   |
+| `type` | number   | 类型       |
+
+## 设置自定义在线状态
+
+- `set_diy_online_status` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "face_id": 1,
+  "face_type": "1",
+  "wording": "自定义状态文本"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名      | 数据类型      | 默认值 | 说明                               |
+| ----------- | ------------- | ------ | ---------------------------------- |
+| `face_id`   | number/string | -      | 表情ID，参考face_config.json的QSid |
+| `face_type` | number/string | "1"    | 表情类型                           |
+| `wording`   | string        | " "    | 自定义状态文本                     |
+
+### 响应数据
+
+成功为设置成功信息
+
+## 设置在线状态
+
+- `set_online_status` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "status": 1,
+  "ext_status": 0,
+  "battery_status": 0
+}
+```
+
+:::
+
+### 参数
+
+- 参考 [apifox](https://napcat.apifox.cn/226658977e0)
+
+| 字段名           | 数据类型 | 默认值 | 说明               |
+| ---------------- | -------- | ------ | ------------------ |
+| `status`         | number   | -      | 状态值，见状态列表 |
+| `ext_status`     | number   | -      |                    |
+| `battery_status` | number   | -      |                    |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 设置输入状态
+
+- `set_input_status` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "event_type": 1
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "result": 0,
+  "errMsg": "string"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明                                    |
+| ------------ | -------- | ------ | --------------------------------------- |
+| `event_type` | number   |        | `0=对方正在说话...` `1=对方正在输入...` |
+
+### 响应数据
+
+| 字段名   | 数据类型 | 说明 |
+| -------- | -------- | ---- |
+| `result` | number   | 结果 |
+| `errMsg` | string   | 错误 |
+
+## 获取个人资料点赞
+
+- `get_profile_like` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "user_id": 123456789,
+  "start": 0,
+  "count": 10
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "uid": "string",
+  "time": "string",
+  "favoriteInfo": {
+    "userInfos": [
+      {
+        "age": 0,
+        "bAvailableCnt": 0,
+        "bTodayVotedCnt": 0,
+        "count": 0,
+        "customId": 0,
+        "gender": 0,
+        "giftCount": 0,
+        "isFriend": false,
+        "isSvip": false,
+        "isvip": false,
+        "lastCharged": 0,
+        "latestTime": 0,
+        "nick": "string",
+        "src": 0,
+        "uid": "string",
+        "uin": 0
+      }
+    ],
+    "total_count": 0,
+    "last_time": 0,
+    "today_count": 0
+  },
+  "voteInfo": {
+    "total_count": 0,
+    "new_count": 0,
+    "new_nearby_count": 0,
+    "last_visit_time": 0,
+    "userInfos": [
+      {
+        "age": 0,
+        "bAvailableCnt": 0,
+        "bTodayVotedCnt": 0,
+        "count": 0,
+        "customId": 0,
+        "gender": 0,
+        "giftCount": 0,
+        "isFriend": false,
+        "isSvip": false,
+        "isvip": false,
+        "lastCharged": 0,
+        "latestTime": 0,
+        "nick": "string",
+        "src": 0,
+        "uid": "string",
+        "uin": 0
+      }
+    ]
+  }
+}
+```
+
+:::
+
+### 参数
+
+| 字段名    | 数据类型 | 默认值 | 说明                           |
+| --------- | -------- | ------ | ------------------------------ |
+| `user_id` | number   | -      | 目标用户QQ号 `不填为获取所有?` |
+| `start`   | number   | 0      | 起始位置                       |
+| `count`   | number   | 10     | 获取数量                       |
+
+### 响应数据
+
+| 字段名         | 数据类型                      | 说明     |
+| -------------- | ----------------------------- | -------- |
+| `uid`          | string                        | 用户ID   |
+| `time`         | string                        | 时间     |
+| `favoriteInfo` | [favoriteInfo](#favoriteInfo) | 点赞信息 |
+| `voteInfo`     | [voteInfo](#voteInfo)         | 投票信息 |
+
+#### favoriteInfo
+
+| 字段名        | 数据类型                  | 说明         |
+| ------------- | ------------------------- | ------------ |
+| `userInfos`   | [userInfos[]](#userInfos) | 用户信息     |
+| `total_count` | number                    | 总点赞次数   |
+| `last_time`   | number                    | 最后点赞时间 |
+| `today_count` | number                    | 今日点赞次数 |
+
+#### voteInfo
+
+| 字段名             | 数据类型                  | 说明           |
+| ------------------ | ------------------------- | -------------- |
+| `userInfos`        | [userInfos[]](#userInfos) | 用户信息       |
+| `total_count`      | number                    | 总点赞次数     |
+| `new_count`        | number                    | 新点赞次数     |
+| `new_nearby_count` | number                    | 附近新点赞次数 |
+| `last_visit_time`  | number                    | 最后访问时间   |
+
+#### userInfos
+
+| 字段名           | 数据类型 | 说明         |
+| ---------------- | -------- | ------------ |
+| `age`            | number   | 年龄         |
+| `bAvailableCnt`  | number   | 可用次数     |
+| `bTodayVotedCnt` | number   | 今日投票次数 |
+| `count`          | number   | 点赞次数     |
+| `customId`       | number   | 自定义ID     |
+| `gender`         | number   | 性别         |
+| `giftCount`      | number   | 礼物次数     |
+| `isFriend`       | boolean  | 是否好友     |
+| `isSvip`         | boolean  | 是否SVIP     |
+| `isvip`          | boolean  | 是否VIP      |
+| `lastCharged`    | number   | 最后充电时间 |
+| `latestTime`     | number   | 最后点赞时间 |
+| `nick`           | string   | 昵称         |
+| `src`            | number   | 来源         |
+| `uid`            | string   | 用户ID       |
+| `uin`            | number   | 用户QQ号     |
+
+## 获取官方机器人账号范围
+
+- `get_robot_uin_range` (NapCat拓展)
+
+::: details 点击查看响应示例数据
+
+```json
+[
+  {
+    "minUin": "3328144510",
+    "maxUin": "3328144510"
+  },
+  {
+    "minUin": "2854196301",
+    "maxUin": "2854216399"
+  },
+  {
+    "minUin": "66600000",
+    "maxUin": "66600000"
+  },
+  {
+    "minUin": "3889000000",
+    "maxUin": "3889999999"
+  },
+  {
+    "minUin": "4010000000",
+    "maxUin": "4019999999"
+  }
+]
+```
+
+:::
+
+### 参数
+
+::: tip 提示
+该 API 无需参数
+:::
+
+### 响应数据
+
+返回一个数组，每个元素是一个对象
+
+| 字段名   | 数据类型 | 说明     |
+| -------- | -------- | -------- |
+| `minUin` | number   | 最小QQ号 |
+| `maxUin` | number   | 最大QQ号 |
+
+## 设置自己的个性签名
+
+- `set_self_longnick` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "longNick": "新的个性签名内容"
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "result": 0,
+  "errMsg": "string"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名     | 数据类型 | 默认值 | 说明       |
+| ---------- | -------- | ------ | ---------- |
+| `longNick` | string   | -      | 新个性签名 |
+
+### 响应数据
+
+| 字段名   | 数据类型 | 说明 |
+| -------- | -------- | ---- |
+| `result` | number   | 结果 |
+| `errMsg` | string   | 错误 |
+
+## 获取最近联系人
+
+- `get_recent_contact` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "count": 20
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+[
+  // 返回值1
+  {
+    "peerUin": 0,
+    "remark": "string",
+    "msgTime": 0,
+    "chatType": 0,
+    "msgId": 0,
+    "sendNickName": "string",
+    "sendMemberName": "string",
+    "peerName": "string"
+  },
+  // 返回值2
+  {
+    "lastestMsg": {
+      "self_id": 0,
+      "user_id": 0,
+      "time": 0,
+      "real_seq": "string",
+      "message_type": "string",
+      "sender": {
+        "user_id": 0,
+        "nickname": "string",
+        "sex": "male",
+        "age": 0,
+        "card": "string",
+        "role": "owner"
+      },
+      "raw_message": "string",
+      "font": 0,
+      "sub_type": "string",
+      "message": [
+        {
+          "type": "text",
+          "data": {
+            "text": "string"
+          }
+        }
+      ],
+      "message_format": "string",
+      "post_type": "string",
+      "group_id": 0
+    },
+    "peerUin": 0,
+    "remark": "string",
+    "msgTime": 0,
+    "chatType": 0,
+    "msgId": 0,
+    "sendNickName": "string",
+    "sendMemberName": "string",
+    "peerName": "string"
+  }
+]
+```
+
+:::
+
+### 参数
+
+| 字段名  | 数据类型 | 默认值 | 说明     |
+| ------- | -------- | ------ | -------- |
+| `count` | number   | 10     | 获取数量 |
+
+### 响应数据
+
+返回一个数组，每个元素是都可能是以下两种对象
+
+- 对象1
+
+| 字段名           | 数据类型 | 说明         |
+| ---------------- | -------- | ------------ |
+| `peerUin`        | number   | 对方QQ号     |
+| `remark`         | string   | 备注         |
+| `msgTime`        | number   | 消息时间     |
+| `chatType`       | number   | 聊天类型     |
+| `msgId`          | number   | 消息ID       |
+| `sendNickName`   | string   | 发送者昵称   |
+| `sendMemberName` | string   | 发送者群名片 |
+| `peerName`       | string   | 对方昵称     |
+
+- 对象2
+
+| 字段名           | 数据类型                       | 说明         |
+| ---------------- | ------------------------------ | ------------ |
+| `lastestMsg`     | [message](../event/message.md) | 最后一条消息 |
+| `peerUin`        | number                         | 对方QQ号     |
+| `remark`         | string                         | 备注         |
+| `msgTime`        | number                         | 消息时间     |
+| `chatType`       | number                         | 聊天类型     |
+| `msgId`          | number                         | 消息ID       |
+| `sendNickName`   | string                         | 发送者昵称   |
+| `sendMemberName` | string                         | 发送者群名片 |
+| `peerName`       | string                         | 对方昵称     |
+
+## 获取用户状态
+
+- `get_user_status` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "user_id": 123456789
+}
+```
+
+:::
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "status": 0,
+  "ext_status": 0
+}
+```
+
+:::
+
+### 参数
+
+| 字段名    | 数据类型 | 默认值 | 说明         |
+| --------- | -------- | ------ | ------------ |
+| `user_id` | number   | -      | 目标用户QQ号 |
+
+### 响应数据
+
+| 字段名       | 数据类型 | 说明     |
+| ------------ | -------- | -------- |
+| `status`     | number   | 状态     |
+| `ext_status` | number   | 扩展状态 |
+
+## 获取clientkey
+
+- `get_clientkey` (NapCat拓展)
+
+::: details 点击查看响应示例数据
+
+```json
+{
+  "clientkey": "string"
+}
+```
+
+:::
+
+### 参数
+
+::: tip 提示
+该 API 没有参数
+:::
+
+### 响应数据
+
+| 字段名      | 数据类型 | 说明      |
+| ----------- | -------- | --------- |
+| `clientkey` | string   | 客户端key |

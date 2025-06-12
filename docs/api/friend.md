@@ -390,3 +390,205 @@
 ::: tip 提示
 该 API 没有响应数据
 :::
+
+## 设置好友备注
+
+- `set_friend_remark` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "user_id": 123456789,
+  "remark": "新的备注"
+}
+```
+
+:::
+
+### 参数
+
+| 字段名    | 数据类型 | 默认值 | 说明     |
+| --------- | -------- | ------ | -------- |
+| `user_id` | number   | -      | 好友QQ号 |
+| `remark`  | string   | -      | 备注     |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 获取分类的好友列表
+
+- `get_friends_with_category` (NapCat拓展)
+
+::: details 点击查看响应示例数据
+
+```json
+[
+  {
+    "categoryId": 0,
+    "categorySortId": 0,
+    "categoryName": "string",
+    "categoryMbCount": 0,
+    "onlineCount": 0,
+    "buddyList": [
+      {
+        "birthday_year": 0,
+        "birthday_month": 0,
+        "birthday_day": 0,
+        "user_id": 0,
+        "age": 0,
+        "phone_num": "string",
+        "email": "string",
+        "category_id": 0,
+        "nickname": "string",
+        "remark": "string",
+        "sex": "string",
+        "level": 0
+      }
+    ]
+  }
+]
+```
+
+:::
+
+### 参数
+
+::: tip 提示
+该 API 无需参数
+:::
+
+### 响应数据
+
+响应内容为 JSON 数组，每个元素如下：
+
+| 字段名            | 数据类型                | 说明       |
+| ----------------- | ----------------------- | ---------- |
+| `categoryId`      | number                  | 分类ID     |
+| `categorySortId`  | number                  | 分类排序ID |
+| `categoryName`    | string                  | 分类名称   |
+| `categoryMbCount` | number                  | 分类人数   |
+| `onlineCount`     | number                  | 在线人数   |
+| `buddyList`       | [buddyList](#buddyList) | 好友列表   |
+
+#### buddyList
+
+| 字段名           | 数据类型 | 说明     |
+| ---------------- | -------- | -------- |
+| `birthday_year`  | number   | 生日年份 |
+| `birthday_month` | number   | 生日月份 |
+| `birthday_day`   | number   | 生日日期 |
+| `user_id`        | number   | 好友QQ号 |
+| `age`            | number   | 年龄     |
+| `phone_num`      | string   | 手机号   |
+| `email`          | string   | 邮箱     |
+| `category_id`    | number   | 分类ID   |
+| `nickname`       | string   | 昵称     |
+| `remark`         | string   | 备注     |
+| `sex`            | string   | 性别     |
+| `level`          | number   | 等级     |
+
+## 获取可疑好友请求
+
+- `get_doubt_friends_add_request` (NapCat拓展)
+
+::: details 点击查看响应示例数据
+
+```json
+[
+  {
+    "flag": "string",
+    "uin": "string",
+    "nick": "string",
+    "source": "string",
+    "reason": "string",
+    "msg": "string",
+    "group_code": "string",
+    "time": "string",
+    "type": "string"
+  }
+]
+```
+
+:::
+
+### 参数
+
+::: tip 提示
+该 API 无需参数
+:::
+
+### 响应数据
+
+返回内容为 JSON 数组，每个元素如下：
+
+| 字段名       | 数据类型 | 说明     |
+| ------------ | -------- | -------- |
+| `flag`       | string   | 请求标识 |
+| `uin`        | string   | 好友QQ号 |
+| `nick`       | string   | 好友昵称 |
+| `source`     | string   | 来源     |
+| `reason`     | string   | 原因     |
+| `msg`        | string   | 验证消息 |
+| `group_code` | string   | 群号     |
+| `time`       | string   | 时间     |
+| `type`       | string   | 类型     |
+
+## 处理可疑好友请求
+
+- `set_doubt_friends_add_request` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "request_id": "request_id",
+  "approve": true // 该参数只允许传递true
+}
+```
+
+:::
+
+### 参数
+
+| 字段名       | 数据类型 | 默认值 | 说明         |
+| ------------ | -------- | ------ | ------------ |
+| `request_id` | string   | -      | 请求ID       |
+| `approve`    | boolean  | true   | 是否同意请求 |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::
+
+## 好友戳一戳
+
+- `friend_poke` (NapCat拓展)
+
+::: details 点击查看请求示例数据
+
+```json
+{
+  "user_id": 123456789,
+  "target_id": 123456789
+}
+```
+
+:::
+
+### 参数
+
+| 字段名      | 数据类型 | 默认值 | 说明                           |
+| ----------- | -------- | ------ | ------------------------------ |
+| `user_id`   | number   | -      | 好友QQ号 与 `target_id` 二选一 |
+| `target_id` | number   | -      | 目标QQ号 与 `user_id` 二选一   |
+
+### 响应数据
+
+::: tip 提示
+该 API 没有响应数据
+:::

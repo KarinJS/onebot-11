@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import llmstxt from 'vitepress-plugin-llms'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -16,7 +17,8 @@ export default defineConfig({
           charset: false
         }
       }
-    }
+    },
+    plugins: [llmstxt()]
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
